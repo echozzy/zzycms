@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Article\Providers;
+namespace Modules\Admin\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $moduleNamespace = 'Modules\Article\Http\Controllers';
+    protected $moduleNamespace = 'Modules\Admin\Http\Controllers';
 
     /**
      * Called before routes are registered.

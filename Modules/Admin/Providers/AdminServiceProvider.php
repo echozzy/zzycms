@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Article\Providers;
+namespace Modules\Admin\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
-class ArticleServiceProvider extends ServiceProvider
+class AdminServiceProvider extends ServiceProvider
 {
     /**
      * Boot the application events.
@@ -39,10 +39,10 @@ class ArticleServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('article.php'),
+            __DIR__.'/../Config/config.php' => config_path('admin.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'article'
+            __DIR__.'/../Config/config.php', 'admin'
         );
     }
 
@@ -53,7 +53,7 @@ class ArticleServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/modules/article');
+        $viewPath = resource_path('views/modules/admin');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
@@ -62,8 +62,8 @@ class ArticleServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/article';
-        }, \Config::get('view.paths')), [$sourcePath]), 'article');
+            return $path . '/modules/admin';
+        }, \Config::get('view.paths')), [$sourcePath]), 'admin');
     }
 
     /**
@@ -73,12 +73,12 @@ class ArticleServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = resource_path('lang/modules/article');
+        $langPath = resource_path('lang/modules/admin');
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, 'article');
+            $this->loadTranslationsFrom($langPath, 'admin');
         } else {
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'article');
+            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'admin');
         }
     }
 
