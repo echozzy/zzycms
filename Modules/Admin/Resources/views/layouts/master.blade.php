@@ -3,11 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>ZzyCms | 仪表板</title>
   <meta name="description" content="zzycms"/>
   <meta name="keywords" content="zzycms"/>
   <!-- 告诉浏览器响应屏幕宽度 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <!-- 图标矢量图 -->
   <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Tempusdominus Bbootstrap 4 -->
@@ -22,6 +26,7 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote富文本 -->
   <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.css')}}">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -209,9 +214,7 @@
   </footer>
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
