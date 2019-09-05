@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>ZzyCms | 仪表板</title>
+  <meta name="description" content="zzycms"/>
+  <meta name="keywords" content="zzycms"/>
   <!-- 告诉浏览器响应屏幕宽度 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- 图标矢量图 -->
