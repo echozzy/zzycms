@@ -36,7 +36,8 @@
     width: 2.1rem;
     margin-top: -0.4rem;
   }
-  .dropdown-item span{
+
+  .dropdown-item span {
     padding-left: 0.8rem;
   }
 </style>
@@ -130,7 +131,12 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#"><i class="fa fa-lock"></i><span>修改密码</span></a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i><span>退出</span></a>
+            <a class="dropdown-item" href="#"
+              onclick="event.preventDefault();document.getElementById('logout').submit()"><i
+                class="fa fa-sign-out-alt"></i><span>退出</span></a>
+            <form action="{{route('logout')}}" method="post" id="logout">
+              @csrf
+            </form>
           </div>
         </li>
       </ul>
@@ -213,7 +219,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">仪表板</h1>
+              <h4 class="m-0 text-dark">仪表板</h4>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
