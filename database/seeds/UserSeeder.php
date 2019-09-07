@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
         $user = $users[0];
         $user->name = 'zzy';
         $user->email = '348858954@qq.com';
+        $user->nick_name = 'zzyecho';
         $user->save();
     }
 }

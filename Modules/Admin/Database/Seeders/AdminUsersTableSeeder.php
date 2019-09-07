@@ -5,7 +5,7 @@ namespace Modules\Admin\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class AdminDatabaseSeeder extends Seeder
+class AdminUsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,10 @@ class AdminDatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-
-        $this->call(AdminUsersTableSeeder::class);
+        $users = factory(\Modules\Admin\Model\AdminUsers::class,4)->create();
+        $user = $users[0];
+        $user->name = 'admin';
+        $user->nick_name = '超级管理员';
+        $user->save();
     }
 }
