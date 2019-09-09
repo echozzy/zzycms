@@ -17,7 +17,7 @@ class AdminUsersTableSeeder extends Seeder
         Model::unguard();
         $users = factory(\Modules\Admin\Model\AdminUsers::class,4)->create();
         $user = $users[0];
-        $user->name = 'admin';
+        $user->user_name = 'admin';
         $user->nick_name = '超级管理员';
         $user->save();
     }

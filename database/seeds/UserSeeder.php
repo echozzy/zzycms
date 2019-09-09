@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
     {
         $users = factory(\App\User::class,10)->create();
         $user = $users[0];
-        $user->name = 'zzy';
+        $user->user_name = 'zzy';
         $user->email = '348858954@qq.com';
         $user->nick_name = 'zzyecho';
         $user->save();
