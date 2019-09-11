@@ -53,7 +53,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
+          <a href="/admin" class="nav-link">Home</a>
         </li>
       </ul>
 
@@ -124,7 +124,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
             <img src="dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
-            <span class="hidden-xs">Administrator</span>
+            <span class="hidden-xs">{{auth()->user()->nick_name}}</span>
           </a>
           <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
             <a class="dropdown-item" href="#"><i class="fa fa-user-circle"></i><span>修改信息</span></a>
@@ -146,7 +146,7 @@
     <!-- 主边栏容器 -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <a href="/admin" class="brand-link">
         <img src="{{asset('admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
           class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">ZzyCms 1</span>
@@ -160,52 +160,13 @@
             <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">zzy</a>
+            <a href="#" class="d-block">{{auth()->user()->nick_name}}</a>
           </div>
         </div>
 
         <!-- 边栏 Menu -->
         <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- 使用.nav icon类向链接添加图标 使用字体awesome或任何其他图标字体库 -->
-            <li class="nav-item has-treeview menu-open">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                  仪表板
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./index.html" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>仪表板 v1</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./index2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>仪表板 v2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./index3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>仪表板 v3</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-header">杂项</li>
-            <li class="nav-item">
-              <a href="https://adminlte.io/docs/3.0" class="nav-link">
-                <i class="nav-icon fas fa-file"></i>
-                <p>文档</p>
-              </a>
-            </li>
-          </ul>
+          @include('admin::layouts._menus')
         </nav>
         <!-- /.边栏-menu -->
       </div>
@@ -219,7 +180,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h4 class="m-0 text-dark">仪表板</h4>
+              <h4 class="m-0 text-dark"></h4>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
