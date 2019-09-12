@@ -26,9 +26,9 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- 日期组件 -->
   <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
-  <!-- summernote富文本 -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.css')}}">
-
+  @stack('css-stack')
+  @section('styles')
+  @show
 </head>
 <style>
   .user-image {
@@ -180,12 +180,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h4 class="m-0 text-dark"></h4>
+              <h4 class="m-0 text-dark">@yield('title')</h4>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">仪表板 v1</li>
+                <li class="breadcrumb-item active">@yield('title')</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -218,27 +218,20 @@
   <script>
     $.widget.bridge('uibutton', $.ui.button)
   </script>
-  <!-- 图表进度条工具 -->
-  <!-- ChartJS -->
-  <script src="{{asset('admin/plugins/chart.js/Chart.min.js')}}"></script>
-  <!-- Sparkline -->
-  <script src="{{asset('admin/plugins/sparklines/sparkline.js')}}"></script>
-  <!-- jQuery Knob Chart -->
-  <script src="{{asset('admin/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
-  <!-- ./图表进度条工具 -->
   <!-- daterangepicker -->
   <script src="{{asset('admin/plugins/moment/moment.min.js')}}"></script>
   <script src="{{asset('admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
   <!-- Tempusdominus Bootstrap 4 -->
   <script src="{{asset('admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
-  <!-- summernote富文本 -->
-  <script src="{{asset('admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
   <!-- overlayScrollbars -->
   <script src="{{asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
   <!-- FastClick -->
   <script src="{{asset('admin/plugins/fastclick/fastclick.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
+  @stack('js-stack')
+  @section('scripts')
+  @show
 </body>
 
 </html>

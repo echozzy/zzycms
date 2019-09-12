@@ -30,7 +30,7 @@ return [
         "menus"      => [
             ["title" => "管理员列表", "permission" => "权限标识", "url" => "链接地址"],
             ["title" => "管理员日志", "permission" => "权限标识", "url" => "链接地址"],
-            ["title" => "角色管理", "permission" => "权限标识", "url" => "链接地址"],
+            ["title" => "角色管理", "permission" => "权限标识", "url" => "/admin/role"],
             ["title" => "权限管理", "permission" => "权限标识", "url" => "/admin/role"],
         ],
     ],
