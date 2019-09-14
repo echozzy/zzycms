@@ -5,6 +5,8 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Http\Requests\RoleRequest;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -14,16 +16,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('admin::role.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('admin::create');
+        $roles = Role::get();
+        return view('admin::role.index', compact('roles'));
     }
 
     /**
@@ -31,9 +25,11 @@ class RoleController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        //
+        Role::create(['title'=>$request->title,'name'=>$request->name]);
+        session()->flash('success','角色添加成功');
+        return back();
     }
 
     /**
@@ -47,24 +43,16 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        return view('admin::edit');
-    }
-
-    /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, Role $role)
     {
-        //
+        $role->update(['title' => $request->title,'name' => $request->name]);
+        session()->flash('角色编辑成功');
+        return back();
     }
 
     /**

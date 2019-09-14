@@ -1,11 +1,10 @@
-<script src="{{asset('admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 <script type="text/javascript">
     $(function(){
         const Toast = Swal.mixin({
             toast: true,
             position: 'top',
             showConfirmButton: false,
-            timer: 3000
+            timer: 4000
         });
     
         @if(count($errors)>0)

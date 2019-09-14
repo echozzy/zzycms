@@ -26,9 +26,11 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- 日期组件 -->
   <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
+
+  <link rel="stylesheet" href="{{asset('admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+
+  <script src="{{ mix('js/app.js') }}"></script>
   @stack('css-stack')
-  @section('styles')
-  @show
 </head>
 <style>
   .user-image {
@@ -39,6 +41,18 @@
 
   .dropdown-item span {
     padding-left: 0.8rem;
+  }
+
+  /* 警告框 */
+  .swal2-title {
+    margin-left: 0.8rem !important;
+  }
+  /* 按钮 */
+  .btn-xs {
+    padding: .2rem .6rem;
+    font-size: .875rem;
+    line-height: 1.4;
+    border-radius: .2rem;
   }
 </style>
 
@@ -211,7 +225,6 @@
     </footer>
   </div>
   <!-- ./wrapper -->
-  <script src="{{ mix('js/app.js') }}"></script>
   <!-- jQuery UI 1.11.4 -->
   <script src="{{asset('admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -229,9 +242,11 @@
   <script src="{{asset('admin/plugins/fastclick/fastclick.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
+  <!-- 警告框 -->
+  <script src="{{asset('admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
   @stack('js-stack')
-  @section('scripts')
-  @show
+  @include('admin::layouts._validate')
+  @include('admin::layouts._messages')
 </body>
 
 </html>

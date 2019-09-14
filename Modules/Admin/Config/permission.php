@@ -10,9 +10,9 @@
  */
 return [
     [
-        'group' => '文章管理',
+        'group' => '权限管理',
         'permissions' => [
-            ['title' => '添加栏目', 'name' => 'Modules\Admin\Http\Controllers\CategoryController@create', 'guard' => 'admin'],
+            ['title' => '角色管理', 'name' => 'Modules\Admin\Http\Controllers\RoleController', 'guard' => 'admin'],
         ],
     ],
 ];
