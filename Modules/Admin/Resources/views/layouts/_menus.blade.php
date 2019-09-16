@@ -1,6 +1,6 @@
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
     <!-- 使用.nav icon类向链接添加图标 使用字体awesome或任何其他图标字体库 -->
-    @if($menus = \ZyModule::getMenuByModule())
+    @if($menus = \ZyModule::getMenus())
     @foreach($menus as $menu)
     <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
@@ -11,7 +11,7 @@
             </p>
         </a>
         <ul class="nav nav-treeview">
-            @foreach($menu['menus'] as $item)
+            @foreach($menu['child'] as $item)
             <li class="nav-item">
                 <a href="{{$item['url']}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>

@@ -13,25 +13,30 @@
  * permission 权限标识，必须在permission.php配置文件中存在
  */
 return [
-    'Admin'=>[
+    [
         "title"      => "系统管理",
+        "p_id"        => 0,//父级ID
         "icon"       => "fa fa-cogs",
         'permission' => '权限标识',
+        "url" => "链接地址",
         "menus"      => [
-            ["title" => "网站信息", "permission" => "权限标识", "url" => "链接地址"],
-            ["title" => "邮箱配置", "permission" => "权限标识", "url" => "链接地址"],
-            ["title" => "友情链接", "permission" => "权限标识", "url" => "链接地址"],
+            ["title" => "网站信息", "icon"=> "fa fa-navicon","permission" => "权限标识", "url" => "链接地址"],
+            ["title" => "邮箱配置", "icon"=> "fa fa-navicon","permission" => "权限标识", "url" => "链接地址"],
+            ["title" => "友情链接", "icon"=> "fa fa-navicon","permission" => "权限标识", "url" => "链接地址"],
+            ["title" => "后台菜单", "icon"=> "fa fa-navicon","permission" => "权限标识", "url" => "/admin/menu"],
         ],
     ],
-    'Role'=>[
+    [
         "title"      => "权限管理",
+        "p_id"        => 0,//父级ID
         "icon"       => "fas fa-user-shield",
         'permission' => '权限标识',
+        "url" => "链接地址",
         "menus"      => [
-            ["title" => "管理员列表", "permission" => "权限标识", "url" => "链接地址"],
-            ["title" => "管理员日志", "permission" => "权限标识", "url" => "链接地址"],
-            ["title" => "角色管理", "permission" => "权限标识", "url" => "/admin/role"],
-            ["title" => "权限管理", "permission" => "权限标识", "url" => "/admin/role"],
+            ["title" => "管理员列表", "icon"=> "fa fa-navicon", "permission" => "权限标识", "url" => "链接地址"],
+            ["title" => "管理员日志", "icon"=> "fa fa-navicon", "permission" => "权限标识", "url" => "链接地址"],
+            ["title" => "角色管理", "icon"=> "fa fa-navicon", "permission" => "权限标识", "url" => "/admin/role"],
+            ["title" => "权限列表", "icon"=> "fa fa-navicon", "permission" => "权限标识", "url" => "/admin/role"],
         ],
     ],
 ];

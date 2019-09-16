@@ -18,5 +18,6 @@ Route::group(['middleware'=>'web','prefix'=>'admin','namespace'=>'\Modules\Admin
 
 Route::group(['middleware'=>['web','auth:admin'],'prefix'=>'admin','namespace'=>'\Modules\Admin\Http\Controllers'],function(){
     Route::get('/', 'AdminController@index');
+    Route::resource('menu', 'MenuController');
     Route::resource('role', 'RoleController');
 });

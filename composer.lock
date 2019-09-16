@@ -267,16 +267,16 @@
         },
         {
             "name": "echozzy/laravel-module",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/echozzy/laravel-module.git",
-                "reference": "a204fcbafa20f9ca88c409462b04ba0ffc4472d2"
+                "reference": "b79128e88f7ad8d66b5f9663e68998e988944bb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/echozzy/laravel-module/zipball/a204fcbafa20f9ca88c409462b04ba0ffc4472d2",
-                "reference": "a204fcbafa20f9ca88c409462b04ba0ffc4472d2",
+                "url": "https://api.github.com/repos/echozzy/laravel-module/zipball/b79128e88f7ad8d66b5f9663e68998e988944bb3",
+                "reference": "b79128e88f7ad8d66b5f9663e68998e988944bb3",
                 "shasum": ""
             },
             "require": {
@@ -311,7 +311,7 @@
                 }
             ],
             "description": "laravel-module",
-            "time": "2019-09-11T03:55:28+00:00"
+            "time": "2019-09-15T09:23:48+00:00"
         },
         {
             "name": "echozzy/upd-laravel-modules",
