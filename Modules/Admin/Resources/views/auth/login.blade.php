@@ -70,6 +70,7 @@
 
   <!-- jQuery -->
   <script src="{{ mix('js/app.js') }}"></script>
+  <script src="{{asset('admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
   @include('admin::layouts._validate')
 </body>
 

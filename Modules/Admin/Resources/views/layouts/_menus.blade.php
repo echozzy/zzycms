@@ -11,7 +11,8 @@
             </p>
         </a>
         <ul class="nav nav-treeview">
-            @foreach($menu['child'] as $item)
+            @if ($menu['children'])
+            @foreach($menu['children'] as $item)
             <li class="nav-item">
                 <a href="{{$item['url']}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
@@ -19,6 +20,7 @@
                 </a>
             </li>
             @endforeach
+            @endif
         </ul>
     </li>
     @endforeach

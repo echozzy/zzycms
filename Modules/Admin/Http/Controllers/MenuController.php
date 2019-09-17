@@ -5,6 +5,9 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Cache;
+use Modules\Admin\Http\Requests\MenuRequest;
+use Modules\Admin\Model\AdminMenu;
 
 class MenuController extends Controller
 {
@@ -14,16 +17,14 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return view('admin::menu.index');
+        $menus = \ZyModule::getMenus();
+        return view('admin::menu.index',compact('menus'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('admin::create');
+    //获取菜单列表
+    public function list(Request $request){
+        $menus = \ZyModule::getMenus();
+        return json_encode($menus);
     }
 
     /**
@@ -31,19 +32,22 @@ class MenuController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(MenuRequest $request)
     {
-        //
-    }
+        $data = [
+            'title' => $request->title,
+            'p_id' => $request->p_id,
+            'icon' => $request->icon,
+            'permission' => $request->permission,
+            'url' => $request->url
+        ];
+        $status = AdminMenu::create($data);
+        if($status){
+            Cache::forget('admin.menus');
+        }
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return view('admin::show');
+        session()->flash('success','菜单添加成功');
+        return back();
     }
 
     /**
@@ -64,7 +68,7 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -75,5 +79,26 @@ class MenuController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //获取菜单
+    public function getMenu(Request $request){
+        $id = $request->id;
+        $menu = AdminMenu::where('id',$id)->first();
+        return json_encode($menu);
+    }
+
+    //菜单排序
+    public function sort(Request $request){
+        $list_order = $request->val;
+        $id = $request->id;
+        $status = AdminMenu::where('id',$id)->update(['list_order' => $list_order]);
+        if($status){
+            Cache::forget('admin.menus');
+            $res = array('msg' => '排序更新成功','status'=>true);
+        }else{
+            $res = array('msg' => '排序更新失败','status'=>false);
+        }
+        return json_encode($res);
     }
 }

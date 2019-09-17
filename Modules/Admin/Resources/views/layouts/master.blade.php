@@ -47,6 +47,7 @@
   .swal2-title {
     margin-left: 0.8rem !important;
   }
+
   /* 按钮 */
   .btn-xs {
     padding: .2rem .6rem;
@@ -227,10 +228,6 @@
   <!-- ./wrapper -->
   <!-- jQuery UI 1.11.4 -->
   <script src="{{asset('admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-  <script>
-    $.widget.bridge('uibutton', $.ui.button)
-  </script>
   <!-- daterangepicker -->
   <script src="{{asset('admin/plugins/moment/moment.min.js')}}"></script>
   <script src="{{asset('admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
@@ -244,9 +241,28 @@
   <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
   <!-- 警告框 -->
   <script src="{{asset('admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
-  @stack('js-stack')
+  <script>
+    // Resolve conflict in jQuery UI tooltip with Bootstrap tooltip 
+    $.widget.bridge('uibutton', $.ui.button)
+    // ajax csrf保护
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    // ajax js消息提示框
+    const JsToast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 2000
+    });
+  </script>
+
   @include('admin::layouts._validate')
   @include('admin::layouts._messages')
+  @stack('js-stack')
 </body>
 
 </html>
