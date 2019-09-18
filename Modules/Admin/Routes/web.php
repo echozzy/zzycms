@@ -23,4 +23,6 @@ Route::group(['middleware'=>['web','auth:admin'],'prefix'=>'admin','namespace'=>
     Route::post('/menu/getMenu', 'MenuController@getMenu')->name('menu.getMenu');
     Route::post('/menu/sort', 'MenuController@sort')->name('menu.sort');
     Route::resource('role', 'RoleController');
+    Route::resource('permission', 'PermissionController');
+    Route::post('/permission/list', 'PermissionController@list')->name('permission.list');
 });

@@ -42,6 +42,10 @@
   .dropdown-item span {
     padding-left: 0.8rem;
   }
+  
+  .content-header{
+    padding: 10px .5rem;
+  }
 
   /* 警告框 */
   .swal2-title {
@@ -138,7 +142,7 @@
         <!-- 个人中心 -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
-            <img src="dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+            <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="user-image img-circle elevation-2" alt="User Image">
             <span class="hidden-xs">{{auth()->user()->nick_name}}</span>
           </a>
           <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
@@ -193,9 +197,9 @@
       <!-- 内容头部 -->
       <div class="content-header">
         <div class="container-fluid">
-          <div class="row mb-2">
+          <div class="row">
             <div class="col-sm-6">
-              <h4 class="m-0 text-dark">@yield('title')</h4>
+              <h5 class="m-0 text-dark">@yield('title')</h5>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">

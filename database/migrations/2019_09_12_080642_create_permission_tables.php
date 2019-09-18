@@ -18,6 +18,8 @@ class CreatePermissionTables extends Migration
 
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title')->comment('权限名称');
+            $table->unsignedInteger('p_id')->default(0)->comment('父级ID');
             $table->string('name');
             $table->string('guard_name');
             $table->timestamps();
