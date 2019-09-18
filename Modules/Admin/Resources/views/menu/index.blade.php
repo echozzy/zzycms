@@ -91,8 +91,8 @@
     </div>
     @endcomponent
 
-    @component('admin::components.modal',['formid'=>'del_forms','id'=>'delMenu','url'=>'/admin/menu','method'=>'DELETE','title'=>'删除菜单'])
-        <input type="hidden" name="id" id="menu_id" value="" />
+    @component('admin::components.modal',['formid'=>'del_forms','id'=>'del','url'=>'/admin/menu','method'=>'DELETE','title'=>'删除菜单'])
+        <input type="hidden" name="id" id="id" value="" />
         <p id="msg">你确定要删除该菜单</p>
     @endcomponent
 
@@ -172,7 +172,7 @@
                         "className":"text-center",
                         data:function(item){
                             var html = '<a class="btn btn-xs bg-gradient-primary" href="#" onclick="updateMenu(this)" data-id="'+item.id+'">编辑</a>\n';
-                            html += '<a class="btn btn-xs bg-gradient-danger" href="#" onclick="delMenu(this)" data-id="'+item.id+'" data-title="'+item.title+'">删除</a>\n';
+                            html += '<a class="btn btn-xs bg-gradient-danger" href="#" onclick="del(this)" data-id="'+item.id+'" data-title="'+item.title+'">删除</a>\n';
                             return html;
                         }
                     }
@@ -203,14 +203,14 @@
         });
     }
 
-    function delMenu(obj){
+    function del(obj){
         var id = $(obj).data('id');
-        var msg = '你确定要删除'+$(obj).data('title')+'?';
+        var msg = '你确定要删除菜单['+$(obj).data('title')+']?';
         var url = '/admin/menu/'+id;
-        $("#menu_id").val(id);
+        $("#id").val(id);
         $("#msg").html(msg);
         $("#del_forms").attr('action',url);
-        $('#delMenu').modal('show');
+        $('#del').modal('show');
     }
 
     function updateSort(obj) {

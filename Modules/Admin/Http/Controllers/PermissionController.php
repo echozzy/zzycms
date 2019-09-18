@@ -57,23 +57,15 @@ class PermissionController extends Controller
     }
 
     /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return view('admin::show');
-    }
-
-    /**
      * Show the form for editing the specified resource.
      * @param int $id
      * @return Response
      */
     public function edit($id)
     {
-        return view('admin::edit');
+        $permission =  Permission::find($id);
+        $permissions = \ZyModule::getPermissions();
+        return view('admin::permission.edit',compact('permission','permissions'));
     }
 
     /**
@@ -82,9 +74,19 @@ class PermissionController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(PermissionRequest $request, Permission $permission)
     {
-        //
+        $data = [
+            'p_id' => $request->p_id,
+            'title' => $request->title,
+            'name' => $request->name,
+            'guard_name' => $request->guard_name
+        ];
+        $status = $permission->update($data);
+        if($status){
+            Cache::forget('admin.permission');
+        }
+        return redirect('/admin/permission')->with('success', '权限更新成功');
     }
 
     /**
@@ -94,6 +96,15 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $children = Permission::where('p_id',$id)->first();
+        if(!$children){
+            Permission::destroy($id);
+            Cache::forget('admin.permission');
+            session()->flash('success','权限删除成功');
+            return back();
+        }else{
+            session()->flash('error','该权限有下级，请先删除下级权限');
+            return back();
+        }
     }
 }

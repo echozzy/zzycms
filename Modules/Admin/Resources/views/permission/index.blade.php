@@ -23,9 +23,9 @@
             </li>
         </ul>
     </div>
-    @component('admin::components.modal',['formid'=>'del_forms','id'=>'delPermission','url'=>'/admin/permission','method'=>'DELETE','title'=>'删除权限'])
-        <input type="hidden" name="id" id="permission_id" value="" />
-        <p id="msg">你确定要删除该权限</p>
+    @component('admin::components.modal',['formid'=>'del_forms','id'=>'del','url'=>'/admin/permission','method'=>'DELETE','title'=>'删除权限'])
+    <input type="hidden" name="id" id="id" value="" />
+    <p id="msg">你确定要删除该权限</p>
     @endcomponent
     <!-- /.card-header -->
     <div class="card-body">
@@ -97,8 +97,8 @@
                     {
                         "className":"text-center",
                         data:function(item){
-                            var html = '<a class="btn btn-xs bg-gradient-primary" href="#" onclick="updateMenu(this)" data-id="'+item.id+'">编辑</a>\n';
-                            html += '<a class="btn btn-xs bg-gradient-danger" href="#" onclick="delMenu(this)" data-id="'+item.id+'" data-title="'+item.title+'">删除</a>\n';
+                            var html = '<a class="btn btn-xs bg-gradient-primary" href="/admin/permission/'+item.id+'/edit">编辑</a>\n';
+                            html += '<a class="btn btn-xs bg-gradient-danger" href="#" onclick="del(this)" data-id="'+item.id+'" data-title="'+item.title+'">删除</a>\n';
                             return html;
                         }
                     }
@@ -107,60 +107,15 @@
         });
     });
 
-    function updateMenu(obj){
+    function del(obj){
         var id = $(obj).data('id');
-        $.ajax({
-            type: 'post',
-            dataType:'json',
-            data: {'id':id,},
-            url:"/admin/menu/getMenu",
-            success:function(data){
-                $("#upMenuParent").val(data.p_id);
-                $("#upMenuTitle").val(data.title);
-                $("#upMenuIcon").val(data.icon);
-                $("#upMenuPermission").val(data.permission);
-                $("#upMenuUrl").val(data.url);
-
-                var url = '/admin/menu/'+id;
-                $("#forms").attr('action',url);
-
-                $('#updateMenu').modal('show');
-            },
-        });
-    }
-
-    function delMenu(obj){
-        var id = $(obj).data('id');
-        var msg = '你确定要删除'+$(obj).data('title')+'?';
-        var url = '/admin/menu/'+id;
-        $("#menu_id").val(id);
+        var msg = '你确定要删除权限['+$(obj).data('title')+']?';
+        var url = '/admin/permission/'+id;
+        $("#id").val(id);
         $("#msg").html(msg);
         $("#del_forms").attr('action',url);
-        $('#delMenu').modal('show');
+        $('#del').modal('show');
     }
 
-    function updateSort(obj) {
-        let id = $(obj).data("id");
-        let val = $(obj).val();
-        $.ajax({
-            type: 'post',
-            dataType:'json',
-            data: {'id':id,'val':val},
-            url:"/admin/menu/sort",
-            success:function(data){
-                if(data.status){
-                    JsToast.fire({
-                        type: 'success',
-                        title: data.msg,
-                    })
-                }else{
-                    JsToast.fire({
-                        type: 'error',
-                        title: data.msg,
-                    })
-                }
-            },
-        });
-    }
 </script>
 @endpush

@@ -45,7 +45,7 @@
                     <th>角色名称</th>
                     <th>角色标识</th>
                     <th>创建时间</th>
-                    <th style="width:200px;">操作</th>
+                    <th class="text-center" style="width:200px;">操作</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,10 +55,12 @@
                     <td>{{$role['title']}}</td>
                     <td>{{$role['name']}}</td>
                     <td>{{$role['created_at']}}</td>
-                    <td align="center">
-                        <a class="btn btn-xs bg-gradient-primary" href="#"  data-toggle="modal" data-target="#editRole{{$role['id']}}">编辑</a>
-                        <button type="button" class="btn btn-xs bg-gradient-primary">权限</button>
-                        <button type="button" class="btn btn-xs bg-gradient-danger">删除</button>
+                    <td class="text-center">
+                        <a class="btn btn-xs bg-gradient-primary" href="#" data-toggle="modal"
+                            data-target="#editRole{{$role['id']}}">编辑</a>
+                        <a href="#" class="btn btn-xs bg-gradient-primary">权限</a>
+                        <a href="#" class="btn btn-xs bg-gradient-danger">删除</a>
+
                         @component('admin::components.modal',['id'=>"editRole{$role['id']}",'method'=>'PUT','url'=>"/admin/role/{$role['id']}",'title'=>"编辑角色{$role['title']}"])
                         <div class="form-group">
                             <label for="roleTitle">角色名称</label>
@@ -84,19 +86,16 @@
 <script src="{{asset('admin/plugins/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
 <script src="{{asset('admin/plugins/datatables/dataTables.language.js')}}"></script>
-@endpush
-@section('scripts')
 <script>
     $(function () {
         $('#role_list').DataTable({
-            "paging": true,
+            "paging": false,
             "lengthChange": false,
             "searching": false,
             "ordering": false,
-            "info": true,
+            "info": false,
             "autoWidth": false
-            },
         });
     });
 </script>
-@endsection
+@endpush
