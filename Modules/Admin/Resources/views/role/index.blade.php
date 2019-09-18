@@ -1,6 +1,13 @@
 @extends('admin::layouts.master')
 @push('css-stack')
 <link rel="stylesheet" href="{{asset('admin/plugins/datatables/dataTables.bootstrap4.css')}}">
+<style>
+    th,
+    td {
+        padding: .6rem !important;
+        vertical-align: middle !important;
+    }
+</style>
 @endpush
 
 @section('title','角色管理')
@@ -49,7 +56,7 @@
                     <td>{{$role['name']}}</td>
                     <td>{{$role['created_at']}}</td>
                     <td align="center">
-                        <a class="btn btn-xs btn-primary" href="#"  data-toggle="modal" data-target="#editRole{{$role['id']}}">编辑</a>
+                        <a class="btn btn-xs bg-gradient-primary" href="#"  data-toggle="modal" data-target="#editRole{{$role['id']}}">编辑</a>
                         <button type="button" class="btn btn-xs bg-gradient-primary">权限</button>
                         <button type="button" class="btn btn-xs bg-gradient-danger">删除</button>
                         @component('admin::components.modal',['id'=>"editRole{$role['id']}",'method'=>'PUT','url'=>"/admin/role/{$role['id']}",'title'=>"编辑角色{$role['title']}"])
@@ -76,6 +83,7 @@
 @push('js-stack')
 <script src="{{asset('admin/plugins/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+<script src="{{asset('admin/plugins/datatables/dataTables.language.js')}}"></script>
 @endpush
 @section('scripts')
 <script>
@@ -86,20 +94,7 @@
             "searching": false,
             "ordering": false,
             "info": true,
-            "autoWidth": false,
-            "language": {
-                "processing" : "处理中...",
-                "search" : "搜索:",
-                "emptyTable" : "没有数据",
-                "loadingRecords" : "数据加载中...",
-                "info": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                "infoEmpty" : "显示第 0 至 0 项结果，共 0 项",
-                "paginate" : {
-                    "first" : "首页",
-                    "previous" : "上页",
-                    "next" : "下页",
-                    "last" : "末页"
-                }
+            "autoWidth": false
             },
         });
     });

@@ -66,9 +66,21 @@ class MenuController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(MenuRequest $request, AdminMenu $menu)
     {
-        dd($request->all());
+        $data = [
+            'title' => $request->title,
+            'p_id' => $request->p_id,
+            'icon' => $request->icon,
+            'permission' => $request->permission,
+            'url' => $request->url
+        ];
+        $status = $menu->update($data);
+        if($status){
+            Cache::forget('admin.menus');
+        }
+        session()->flash('success','菜单编辑成功');
+        return back();
     }
 
     /**
@@ -78,7 +90,16 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $children = AdminMenu::where('p_id',$id)->first();
+        if(!$children){
+            AdminMenu::destroy($id);
+            Cache::forget('admin.menus');
+            session()->flash('success','菜单删除成功');
+            return back();
+        }else{
+            session()->flash('error','该菜单有下级，请先删除下级菜单');
+            return back();
+        }
     }
 
     //获取菜单

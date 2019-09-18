@@ -13,8 +13,10 @@ class MenuRequest extends FormRequest
      */
     public function rules()
     {
+        $menu = $this->route('menu');
+        $id = $menu ? $menu->id : null;
         return [
-            'title'=>'required|unique:admin_menus,title',
+            'title'=>'required|unique:admin_menus,title,'.$id,
             'permission'=>'required',
             'url'=>'required',
         ];
