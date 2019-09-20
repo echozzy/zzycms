@@ -1,8 +1,6 @@
 @extends('admin::layouts.master')
 @push('css-stack')
 <link rel="stylesheet" href="{{asset('admin/plugins/datatables/dataTables.bootstrap4.css')}}">
-<link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
-<link rel="stylesheet" href="{{asset('admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 <style>
     th,
     td {
@@ -12,7 +10,12 @@
 </style>
 @endpush
 
-@section('title','菜单管理')
+@section('title',"菜单列表")
+@section('breadcrumb')
+@parent
+<li class="breadcrumb-item"><a href="/admin/menu">菜单管理</a></li>
+<li class="breadcrumb-item active">菜单列表</li>
+@endsection
 @section('content')
 <div class="card">
     <div class="card-header">

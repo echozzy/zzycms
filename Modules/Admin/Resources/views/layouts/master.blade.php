@@ -18,8 +18,6 @@
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet"
     href="{{asset('admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- 模版样式 -->
   <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
   <!-- overlayScrollbars -->
@@ -203,8 +201,9 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
+                @section('breadcrumb')
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">@yield('title')</li>
+                @show
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->

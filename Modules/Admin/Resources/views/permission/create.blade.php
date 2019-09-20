@@ -1,6 +1,11 @@
 @extends('admin::layouts.master')
 
-@section('title','权限管理/添加权限')
+@section('title','添加权限')
+@section('breadcrumb')
+@parent
+<li class="breadcrumb-item"><a href="/admin/permission">权限管理</a></li>
+<li class="breadcrumb-item active">添加权限</li>
+@endsection
 @section('content')
 <div class="card">
     <div class="card-header">

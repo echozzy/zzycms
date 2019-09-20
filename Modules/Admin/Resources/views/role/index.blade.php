@@ -10,7 +10,12 @@
 </style>
 @endpush
 
-@section('title','角色管理')
+@section('title','角色列表')
+@section('breadcrumb')
+@parent
+<li class="breadcrumb-item"><a href="/admin/role">角色管理</a></li>
+<li class="breadcrumb-item active">角色列表</li>
+@endsection
 @section('content')
 <div class="card">
     <div class="card-header">
@@ -58,7 +63,7 @@
                     <td class="text-center">
                         <a class="btn btn-xs bg-gradient-primary" href="#" data-toggle="modal"
                             data-target="#editRole{{$role['id']}}">编辑</a>
-                        <a href="#" class="btn btn-xs bg-gradient-primary">权限</a>
+                        <a href="/admin/role/permission/{{$role['id']}}" class="btn btn-xs bg-gradient-primary">权限</a>
                         <a href="#" class="btn btn-xs bg-gradient-danger">删除</a>
 
                         @component('admin::components.modal',['id'=>"editRole{$role['id']}",'method'=>'PUT','url'=>"/admin/role/{$role['id']}",'title'=>"编辑角色{$role['title']}"])

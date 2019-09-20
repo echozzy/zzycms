@@ -10,7 +10,12 @@
 </style>
 @endpush
 
-@section('title','权限管理')
+@section('title','权限列表')
+@section('breadcrumb')
+@parent
+<li class="breadcrumb-item"><a href="/admin/permission">权限管理</a></li>
+<li class="breadcrumb-item active">权限列表</li>
+@endsection
 @section('content')
 <div class="card">
     <div class="card-header">

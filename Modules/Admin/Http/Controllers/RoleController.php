@@ -27,8 +27,8 @@ class RoleController extends Controller
      */
     public function store(RoleRequest $request)
     {
-        Role::create(['title'=>$request->title,'name'=>$request->name]);
-        session()->flash('success','角色添加成功');
+        Role::create(['title' => $request->title, 'name' => $request->name]);
+        session()->flash('success', '角色添加成功');
         return back();
     }
 
@@ -50,8 +50,8 @@ class RoleController extends Controller
      */
     public function update(RoleRequest $request, Role $role)
     {
-        $role->update(['title' => $request->title,'name' => $request->name]);
-        session()->flash('角色编辑成功');
+        $role->update(['title' => $request->title, 'name' => $request->name]);
+        session()->flash('success','角色编辑成功');
         return back();
     }
 
@@ -63,5 +63,20 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // 角色权限
+    public function permission(Role $role)
+    {
+        $permissions = \ZyModule::getPermissions();
+        return view('admin::role.permission', compact('role', 'permissions'));
+    }
+
+    // 角色权限更新
+    public function permissionStore(Request $request, Role $role)
+    {
+        $role->syncPermissions($request->id);
+        session()->flash('success','权限设置成功');
+        return back();
     }
 }

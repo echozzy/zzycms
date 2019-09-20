@@ -4,6 +4,7 @@ namespace Modules\Admin\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Models\Role;
 
 class AdminUsersTableSeeder extends Seeder
 {
@@ -20,5 +21,11 @@ class AdminUsersTableSeeder extends Seeder
         $user->user_name = 'admin';
         $user->nick_name = '超级管理员';
         $user->save();
+        Role::create([
+            'title'=>'管理员',
+            'name'=>'admin',
+            'guard_name'=>'admin'
+        ]);
+        $user->assignRole('admin');
     }
 }
