@@ -1,5 +1,5 @@
 @extends('admin::layouts.master')
-@push('css-stack')
+@section('content')
 <link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
 <style>
     .fa-lg {
@@ -10,27 +10,22 @@
         cursor: pointer;
     }
 </style>
-@endpush
-@section('title',"[{$role['title']}]权限设置")
-@section('breadcrumb')
-@parent
-<li class="breadcrumb-item"><a href="/admin/role">角色管理</a></li>
-<li class="breadcrumb-item active">权限设置</li>
-@endsection
-@section('content')
-<div class="card">
-    <div class="card-header">
-        <ul class="nav nav-pills card-header-pills">
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/role">角色列表</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">权限设置</a>
-            </li>
-        </ul>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body col-sm-9 m-auto">
+    @component('admin::components.main',['title'=>"[$role[title]]权限设置"])
+        @slot('breadcrumb')
+        <li class="breadcrumb-item"><a href="/admin/role">角色管理</a></li>
+        <li class="breadcrumb-item active">权限设置</li>
+        @endslot
+
+        @slot('nav')
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/role">角色列表</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">权限设置</a>
+        </li>   
+        @endslot
+
+        @slot('body')
         <form action="/admin/role/permission/{{$role['id']}}" method="post">
             @csrf
             <div class="card-body">
@@ -72,40 +67,38 @@
                 </div>
             </div>
         </form>
-    </div>
-    <!-- /.card-body -->
-</div>
+        <script>
+            $(function() {
+                $('.collapse').on('hide.bs.collapse', function () {
+                    let i = $(this).prev().find('i');
+                    i.prop('class','far fa-caret-square-right fa-lg');
+                })
+                $('.collapse').on('show.bs.collapse', function () {
+                    let i = $(this).prev().find('i');
+                    i.prop('class','far fa-caret-square-down fa-lg');
+                })
+                $('input[type="checkbox"]').click(function () {
+                    let parent = $(this).parents('.collapse');
+                    if(parent.length<1){
+                        parent = $(this).parents('.card-header');
+                        if($(this).prop('checked')){
+                            parent.next().find('input[type="checkbox"]').each(function () {
+                                $(this).prop("checked",true);
+                            })
+                            parent.next('div').collapse('show')
+                        }else{
+                            parent.next().find('input[type="checkbox"]').each(function () {
+                                $(this).prop("checked",false);
+                            })
+                        }
+                    }else{
+                        if($(this).prop('checked')){
+                            parent.prev().find('input[type="checkbox"]').prop("checked",true);
+                        }
+                    }
+                });
+            });
+        </script>
+        @endslot
+    @endcomponent
 @endsection
-@push('js-stack')
-<script>
-    $(function() {
-        $('.collapse').on('hide.bs.collapse', function () {
-            let i = $(this).prev().find('i');
-            i.prop('class','far fa-caret-square-right fa-lg');
-        })
-        $('.collapse').on('show.bs.collapse', function () {
-            let i = $(this).prev().find('i');
-            i.prop('class','far fa-caret-square-down fa-lg');
-        })
-        $('input[type="checkbox"]').click(function () {
-            let parent = $(this).parents('.collapse');
-            if(parent.length<1){
-                parent = $(this).parents('.card-header');
-                if($(this).prop('checked')){
-                    parent.next().find('input[type="checkbox"]').each(function () {
-                        $(this).prop("checked",true);
-                    })
-                }else{
-                    parent.next().find('input[type="checkbox"]').each(function () {
-                        $(this).prop("checked",false);
-                    })
-                }
-            }else{
-                if($(this).prop('checked')){
-                    parent.prev().find('input[type="checkbox"]').prop("checked",true);
-                }
-            }
-        });
-    });
-</script>
-@endpush

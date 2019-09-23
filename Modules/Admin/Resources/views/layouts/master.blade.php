@@ -43,8 +43,8 @@
   .dropdown-item span {
     padding-left: 0.8rem;
   }
-  
-  .content-header{
+
+  .content-header {
     padding: 10px .5rem;
   }
 
@@ -60,10 +60,15 @@
     line-height: 1.4;
     border-radius: .2rem;
   }
-  th,
-  td {
-      padding: .6rem !important;
-      vertical-align: middle !important;
+
+  .table-bordered.dataTable th,td {
+    padding: .6rem !important;
+    vertical-align: middle !important;
+  }
+
+  table .text-center .btn {
+    margin-left: 2px;
+    margin-right: 2px;
   }
 </style>
 
@@ -148,7 +153,8 @@
         <!-- 个人中心 -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
-            <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="user-image img-circle elevation-2" alt="User Image">
+            <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="user-image img-circle elevation-2"
+              alt="User Image">
             <span class="hidden-xs">{{auth()->user()->nick_name}}</span>
           </a>
           <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
@@ -200,45 +206,22 @@
 
     <!-- 页面内容 -->
     <div class="content-wrapper">
-      <!-- 内容头部 -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-6">
-              <h5 class="m-0 text-dark">@yield('title')</h5>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                @section('breadcrumb')
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                @show
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.内容头部 -->
-
-      <!-- Main content -->
-      <section class="content">
-        <div class="container-fluid" id="pjax-container">
-            <!--pjax加载动画-->
-            <div id="loading">
-              <div class="spinner">
-                <div class="rect1"></div>
-                <div class="rect2"></div>
-                <div class="rect3"></div>
-                <div class="rect4"></div>
-                <div class="rect5"></div>
-              </div>
-            </div>
-            <!--pjax加载动画 结束-->
-            <div id="app">
-              @yield('content')
-            </div>
+      <div class="container-fluid" id="pjax-container">
+        <!--pjax加载动画-->
+        <div id="loading">
+          <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
           </div>
-      </section>
-      <!-- /.content -->
+        </div>
+        <!--pjax加载动画 结束-->
+        <div id="app">
+          @yield('content')
+        </div>
+      </div>
     </div>
     <!-- /.页面内容 -->
     <footer class="main-footer">
