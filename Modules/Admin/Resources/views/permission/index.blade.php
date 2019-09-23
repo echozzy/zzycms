@@ -1,19 +1,9 @@
 @extends('admin::layouts.master')
-@push('css-stack')
-<link rel="stylesheet" href="{{asset('admin/plugins/datatables/dataTables.bootstrap4.css')}}">
-<style>
-    th,
-    td {
-        padding: .6rem !important;
-        vertical-align: middle !important;
-    }
-</style>
-@endpush
 
 @section('title','权限列表')
 @section('breadcrumb')
 @parent
-<li class="breadcrumb-item"><a href="/admin/permission">权限管理</a></li>
+<li class="breadcrumb-item"><a pjax href="/admin/permission">权限管理</a></li>
 <li class="breadcrumb-item active">权限列表</li>
 @endsection
 @section('content')
@@ -24,7 +14,7 @@
                 <a class="nav-link active" href="#">权限列表</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/permission/create">添加权限</a>
+                <a class="nav-link" pjax href="/admin/permission/create">添加权限</a>
             </li>
         </ul>
     </div>
@@ -50,12 +40,7 @@
     </div>
     <!-- /.card-body -->
 </div>
-@endsection
-@push('js-stack')
-<script src="{{asset('admin/plugins/datatables/jquery.dataTables.js')}}"></script>
-<script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
-<script src="{{asset('admin/plugins/datatables/dataTables.treeGrid.js')}}"></script>
-<script src="{{asset('admin/plugins/datatables/dataTables.language.js')}}"></script>
+
 <script>
     $(function () {
         // 初始化表格
@@ -123,4 +108,10 @@
     }
 
 </script>
+@endsection
+@push('js-stack')
+{{-- <script src="{{asset('admin/plugins/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+<script src="{{asset('admin/plugins/datatables/dataTables.treeGrid.js')}}"></script>
+<script src="{{asset('admin/plugins/datatables/dataTables.language.js')}}"></script> --}}
 @endpush

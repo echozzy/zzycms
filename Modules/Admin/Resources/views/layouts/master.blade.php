@@ -26,9 +26,12 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
 
   <link rel="stylesheet" href="{{asset('admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+  <!-- 表格 -->
+  <link rel="stylesheet" href="{{asset('admin/plugins/datatables/dataTables.bootstrap4.css')}}">
+  <!-- Pjax -->
+  <link rel="stylesheet" href="{{asset('admin/plugins/pjax/pjax.css')}}">
 
   <script src="{{ mix('js/app.js') }}"></script>
-  @stack('css-stack')
 </head>
 <style>
   .user-image {
@@ -56,6 +59,11 @@
     font-size: .875rem;
     line-height: 1.4;
     border-radius: .2rem;
+  }
+  th,
+  td {
+      padding: .6rem !important;
+      vertical-align: middle !important;
   }
 </style>
 
@@ -213,9 +221,22 @@
 
       <!-- Main content -->
       <section class="content">
-        <div class="container-fluid">
-          @yield('content')
-        </div><!-- /.container-fluid -->
+        <div class="container-fluid" id="pjax-container">
+            <!--pjax加载动画-->
+            <div id="loading">
+              <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+              </div>
+            </div>
+            <!--pjax加载动画 结束-->
+            <div id="app">
+              @yield('content')
+            </div>
+          </div>
       </section>
       <!-- /.content -->
     </div>
@@ -244,6 +265,14 @@
   <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
   <!-- 警告框 -->
   <script src="{{asset('admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+  <!-- 表格 -->
+  <script src="{{asset('admin/plugins/datatables/jquery.dataTables.js')}}"></script>
+  <script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{asset('admin/plugins/datatables/dataTables.treeGrid.js')}}"></script>
+  <script src="{{asset('admin/plugins/datatables/dataTables.language.js')}}"></script>
+  <!-- Pjax -->
+  <script src="{{asset('admin/plugins/pjax/jquery.pjax.js')}}"></script>
+  <script src="{{asset('admin/plugins/pjax/pjax.js')}}"></script>
   <script>
     // Resolve conflict in jQuery UI tooltip with Bootstrap tooltip 
     $.widget.bridge('uibutton', $.ui.button)
@@ -265,7 +294,6 @@
 
   @include('admin::layouts._validate')
   @include('admin::layouts._messages')
-  @stack('js-stack')
 </body>
 
 </html>

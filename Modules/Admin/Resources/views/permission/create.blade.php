@@ -3,7 +3,7 @@
 @section('title','添加权限')
 @section('breadcrumb')
 @parent
-<li class="breadcrumb-item"><a href="/admin/permission">权限管理</a></li>
+<li class="breadcrumb-item"><a pjax href="/admin/permission">权限管理</a></li>
 <li class="breadcrumb-item active">添加权限</li>
 @endsection
 @section('content')
@@ -11,7 +11,7 @@
     <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
             <li class="nav-item">
-                <a class="nav-link" href="/admin/permission">权限列表</a>
+                <a pjax class="nav-link" href="/admin/permission">权限列表</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="#">添加权限</a>

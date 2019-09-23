@@ -1,19 +1,9 @@
 @extends('admin::layouts.master')
-@push('css-stack')
-<link rel="stylesheet" href="{{asset('admin/plugins/datatables/dataTables.bootstrap4.css')}}">
-<style>
-    th,
-    td {
-        padding: .6rem !important;
-        vertical-align: middle !important;
-    }
-</style>
-@endpush
 
 @section('title',"菜单列表")
 @section('breadcrumb')
 @parent
-<li class="breadcrumb-item"><a href="/admin/menu">菜单管理</a></li>
+<li class="breadcrumb-item"><a pjax href="/admin/menu">菜单管理</a></li>
 <li class="breadcrumb-item active">菜单列表</li>
 @endsection
 @section('content')
@@ -21,7 +11,7 @@
     <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
             <li class="nav-item">
-                <a class="nav-link active" href="#">菜单列表</a>
+                <a pjax class="nav-link active" href="#">菜单列表</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#addMenu">添加菜单</a>
@@ -117,12 +107,6 @@
     </div>
     <!-- /.card-body -->
 </div>
-@endsection
-@push('js-stack')
-<script src="{{asset('admin/plugins/datatables/jquery.dataTables.js')}}"></script>
-<script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
-<script src="{{asset('admin/plugins/datatables/dataTables.treeGrid.js')}}"></script>
-<script src="{{asset('admin/plugins/datatables/dataTables.language.js')}}"></script>
 <script>
     $(function () {
         // 初始化表格
@@ -240,4 +224,4 @@
         });
     }
 </script>
-@endpush
+@endsection
