@@ -12,7 +12,7 @@
 </style>
     @component('admin::components.main',['title'=>"[$role[title]]权限设置"])
         @slot('breadcrumb')
-        <li class="breadcrumb-item"><a href="/admin/role">角色管理</a></li>
+        <li class="breadcrumb-item"><a pjax href="/admin/role">角色管理</a></li>
         <li class="breadcrumb-item active">权限设置</li>
         @endslot
 
