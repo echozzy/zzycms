@@ -47,10 +47,10 @@
                         <td>{{$role['name']}}</td>
                         <td>{{$role['created_at']}}</td>
                         <td class="text-center">
-                            <a class="btn btn-xs bg-gradient-primary" href="#" data-toggle="modal"
-                                data-target="#editRole{{$role['id']}}">编辑</a>
-                            <a href="/admin/role/permission/{{$role['id']}}" class="btn btn-xs bg-gradient-primary">权限</a>
-                            <a href="#" class="btn btn-xs bg-gradient-danger">删除</a>
+                            <a class="btn btn-xs bg-gradient-primary @if($role['name']=='Administrators') disabled @endif" href="#" data-toggle="modal"
+                                data-target="#editRole{{$role['id']}}" >编辑</a>
+                            <a href="/admin/role/permission/{{$role['id']}}" class="btn btn-xs bg-gradient-primary @if($role['name']=='Administrators') disabled @endif">权限</a>
+                            <a href="#" class="btn btn-xs bg-gradient-danger @if($role['name']=='Administrators') disabled @endif">删除</a>
     
                             @component('admin::components.modal',['id'=>"editRole{$role['id']}",'method'=>'PUT','url'=>"/admin/role/{$role['id']}",'title'=>"编辑角色{$role['title']}"])
                             <div class="form-group">

@@ -7,18 +7,19 @@
 /**
  * 权限配置
  * 为了避免其他模块有同名的权限，权限标识要以 '控制器@方法' 开始
+ * 资源路由控制器增删改查全有@index控制
  */
 return [
     [
         'title' => '系统管理',
         'p_id' => 0,
-        'name' => 'Admin',
+        'name' => 'AdminController',
         'guard_name' => 'admin',
         'permissions' => [
-            ['title' => '网站信息', 'name' => 'Admin::config-site', 'guard_name' => 'admin'],
-            ['title' => '邮箱配置', 'name' => 'Admin::config-email', 'guard_name' => 'admin'],
-            ['title' => '友情链接', 'name' => 'Admin::config-link', 'guard_name' => 'admin'],
-            ['title' => '后台菜单', 'name' => 'Admin::config-menu', 'guard_name' => 'admin']
+            ['title' => '网站信息', 'name' => 'AdminController@config', 'guard_name' => 'admin'],
+            ['title' => '邮箱配置', 'name' => 'AdminController@email', 'guard_name' => 'admin'],
+            ['title' => '友情链接', 'name' => 'AdminController@link', 'guard_name' => 'admin'],
+            ['title' => '后台菜单', 'name' => 'Modules\Admin\Http\Controllers\MenuController@index', 'guard_name' => 'admin'],
         ],
     ],
     [
@@ -27,10 +28,12 @@ return [
         'name' => 'Permission',
         'guard_name' => 'admin',
         'permissions' => [
-            ['title' => '管理员列表', 'name' => 'Permission::list', 'guard_name' => 'admin'],
-            ['title' => '管理员日志', 'name' => 'Permission::log', 'guard_name' => 'admin'],
-            ['title' => '角色管理', 'name' => 'Permission::role', 'guard_name' => 'admin'],
-            ['title' => '权限列表', 'name' => 'Permission::permissions', 'guard_name' => 'admin']
+            ['title' => '管理员列表', 'name' => 'PermissionController@user_list', 'guard_name' => 'admin'],
+            ['title' => '管理员日志', 'name' => 'PermissionController@log', 'guard_name' => 'admin'],
+            ['title' => '角色管理', 'name' => 'Modules\Admin\Http\Controllers\RoleController@index', 'guard_name' => 'admin'],
+            ['title' => '查看角色权限', 'name' => 'Modules\Admin\Http\Controllers\RoleController@permission', 'guard_name' => 'admin'],
+            ['title' => '修改角色权限', 'name' => 'Modules\Admin\Http\Controllers\RoleController@permissionStore', 'guard_name' => 'admin'],
+            ['title' => '权限列表', 'name' => 'Modules\Admin\Http\Controllers\PermissionController@index', 'guard_name' => 'admin'],
         ],
     ],
 ];

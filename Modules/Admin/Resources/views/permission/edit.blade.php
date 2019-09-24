@@ -41,8 +41,11 @@
                     <div class="form-group row">
                         <label for="name" class="col-sm-2 col-form-label">权限标识</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="请输入权限名称" required
+                            <input type="text" class="form-control" id="name" name="name" placeholder="请输入权限标识" required
                                 value="{{$permission['name']}}">
+                            <small class="form-text text-muted">
+                                权限标识规则:为命名空间+控制器+@方法,例如:Modules\Admin\Http\Controllers\AdminController@index
+                            </small>
                         </div>
                     </div>
                     <div class="form-group row">

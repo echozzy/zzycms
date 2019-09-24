@@ -33,16 +33,6 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return view('admin::show');
-    }
-
-    /**
      * Update the specified resource in storage.
      * @param Request $request
      * @param int $id
@@ -50,8 +40,12 @@ class RoleController extends Controller
      */
     public function update(RoleRequest $request, Role $role)
     {
-        $role->update(['title' => $request->title, 'name' => $request->name]);
-        session()->flash('success','角色编辑成功');
+        if ($role->name!='Administrators') {
+            $role->update(['title' => $request->title, 'name' => $request->name]);
+            session()->flash('success', '角色编辑成功');
+        }else{
+            session()->flash('success', '超级管理员不能编辑');
+        }
         return back();
     }
 
@@ -68,15 +62,24 @@ class RoleController extends Controller
     // 角色权限
     public function permission(Role $role)
     {
-        $permissions = \ZyModule::getPermissions();
-        return view('admin::role.permission', compact('role', 'permissions'));
+        if ($role->name!='Administrators') {
+            $permissions = \ZyModule::getPermissions();
+            return view('admin::role.permission', compact('role', 'permissions'));
+        }else{
+            session()->flash('success', '超级管理员不能编辑');
+            return back();
+        }
     }
 
     // 角色权限更新
     public function permissionStore(Request $request, Role $role)
     {
-        $role->syncPermissions($request->id);
-        session()->flash('success','权限设置成功');
+        if ($role->name!='Administrators') {
+            $role->syncPermissions($request->id);
+            session()->flash('success', '权限设置成功');
+        }else{
+            session()->flash('success', '超级管理员不能编辑');
+        }
         return back();
     }
 }

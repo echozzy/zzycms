@@ -30,14 +30,20 @@
                 <div class="form-group">
                     <label for="menuIcon">菜单图标</label>
                     <input type="text" class="form-control" name="icon" id="menuIcon" placeholder="请输入菜单名称" value="{{old('icon')}}">
-                    <p class="help-block">
+                    <small class="form-text text-muted">
                         <a href="http://www.fontawesome.com.cn/faicons/" target="_blank">选择图标</a>使用的Font Awesome图标库 例:fa fa-navicon
-                    </p>
+                    </small>
                 </div>
                 <div class="form-group">
                     <label for="menuPermission">权限标识</label>
                     <input type="text" class="form-control" name="permission" id="menuPermission" placeholder="请输入权限标识"
                         value="{{old('permission')}}">
+                    <small class="form-text text-muted">
+                        注意该处标识需要和权限出一致.
+                    </small>
+                    <small class="form-text text-muted">
+                        权限标识规则为:命名空间+控制器+@方法,例如:Modules\Admin\Http\Controllers\AdminController@index
+                    </small>
                 </div>
                 <div class="form-group">
                     <label for="menuUrl">URL路径</label>
@@ -63,14 +69,20 @@
                 <div class="form-group">
                     <label for="upMenuIcon">菜单图标</label>
                     <input type="text" class="form-control" name="icon" id="upMenuIcon" placeholder="请输入菜单名称" value="{{old('icon')}}">
-                    <p class="help-block">
+                    <small class="form-text text-muted">
                         <a href="http://www.fontawesome.com.cn/faicons/" target="_blank">选择图标</a>使用的Font Awesome图标库 例:fa fa-navicon
-                    </p>
+                    </small>
                 </div>
                 <div class="form-group">
                     <label for="upMenuPermission">权限标识</label>
                     <input type="text" class="form-control" name="permission" id="upMenuPermission" placeholder="请输入权限标识"
                         value="{{old('permission')}}">
+                    <small class="form-text text-muted">
+                        注意该处标识需要和权限出一致.
+                    </small>
+                    <small class="form-text text-muted">
+                        权限标识规则为:命名空间+控制器+@方法,例如:Modules\Admin\Http\Controllers\AdminController@index
+                    </small>
                 </div>
                 <div class="form-group">
                     <label for="upMenuUrl">URL路径</label>

@@ -22,10 +22,10 @@ class AdminUsersTableSeeder extends Seeder
         $user->nick_name = '超级管理员';
         $user->save();
         Role::create([
-            'title'=>'管理员',
-            'name'=>'admin',
+            'title'=>'超级管理员',
+            'name'=>'Administrators',
             'guard_name'=>'admin'
         ]);
-        $user->assignRole('admin');
+        $user->assignRole('Administrators');
     }
 }

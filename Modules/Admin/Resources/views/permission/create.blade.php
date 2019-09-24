@@ -41,6 +41,9 @@
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="name" name="name" placeholder="请输入权限名称" required
                                 value="{{old('name')}}">
+                                <small class="form-text text-muted">
+                                    权限标识规则为:命名空间+控制器+@方法,例如:Modules\Admin\Http\Controllers\AdminController@index
+                                </small>
                         </div>
                     </div>
                     <div class="form-group row">
