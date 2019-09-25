@@ -56,7 +56,6 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        $role->syncPermissions([]);
         $role->delete();
         session()->flash('success','角色删除成功');
         return back();
