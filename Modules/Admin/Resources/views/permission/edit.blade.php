@@ -1,7 +1,7 @@
 @extends('admin::layouts.master')
 
 @section('content')
-    @component('admin::components.main',['title'=>"编辑权限[$permission[title]]"])
+    @component('admin::components.main',['title'=>"编辑权限[$permission[title]]",'body_css'=>'col-sm-9 m-auto'])
         @slot('breadcrumb')
             <li class="breadcrumb-item"><a pjax href="/admin/permission">权限管理</a></li>
             <li class="breadcrumb-item active">编辑权限</li>

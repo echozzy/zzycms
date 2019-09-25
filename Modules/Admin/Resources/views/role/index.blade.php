@@ -5,6 +5,10 @@
         @slot('breadcrumb')
             <li class="breadcrumb-item"><a pjax href="/admin/role">角色管理</a></li>
             <li class="breadcrumb-item active">角色列表</li>
+            @component('admin::components.modal',['formid'=>'del_forms','id'=>'del','url'=>'/admin/role','method'=>'DELETE','title'=>'删除角色'])
+                <input type="hidden" name="id" id="id" value="" />
+                <p id="msg">你确定要删除该角色</p>
+            @endcomponent
         @endslot
 
         @slot('nav')
@@ -50,7 +54,7 @@
                             <a class="btn btn-xs bg-gradient-primary @if($role['name']=='Administrators') disabled @endif" href="#" data-toggle="modal"
                                 data-target="#editRole{{$role['id']}}" >编辑</a>
                             <a href="/admin/role/permission/{{$role['id']}}" class="btn btn-xs bg-gradient-primary @if($role['name']=='Administrators') disabled @endif">权限</a>
-                            <a href="#" class="btn btn-xs bg-gradient-danger @if($role['name']=='Administrators') disabled @endif">删除</a>
+                            <a href="#"  onclick="del(this)" data-id="{{$role['id']}}" data-title="{{$role['title']}}" class="btn btn-xs bg-gradient-danger @if($role['name']=='Administrators') disabled @endif">删除</a>
     
                             @component('admin::components.modal',['id'=>"editRole{$role['id']}",'method'=>'PUT','url'=>"/admin/role/{$role['id']}",'title'=>"编辑角色{$role['title']}"])
                             <div class="form-group">
@@ -80,6 +84,15 @@
                         "autoWidth": false
                     });
                 });
+                function del(obj){
+                    var id = $(obj).data('id');
+                    var msg = '你确定要删除角色['+$(obj).data('title')+']?';
+                    var url = '/admin/role/'+id;
+                    $("#id").val(id);
+                    $("#msg").html(msg);
+                    $("#del_forms").attr('action',url);
+                    $('#del').modal('show');
+                }
             </script>
         @endslot
     @endcomponent

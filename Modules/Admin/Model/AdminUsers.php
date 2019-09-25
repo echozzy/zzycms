@@ -10,5 +10,6 @@ use Spatie\Permission\Traits\HasRoles;
 class AdminUsers extends Authenticatable
 {
     use Notifiable,HasRoles;
+    protected $guarded = ['id'];
 
 }

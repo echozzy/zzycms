@@ -13,8 +13,6 @@ class PermissionRequest extends FormRequest
      */
     public function rules()
     {
-        $menu = $this->route('menu');
-        $id = $menu ? $menu->id : null;
         return [
             'title'=>'required',
             'name'=>'required',
