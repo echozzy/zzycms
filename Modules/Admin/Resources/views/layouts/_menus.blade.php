@@ -1,6 +1,6 @@
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
     <!-- 使用.nav icon类向链接添加图标 使用字体awesome或任何其他图标字体库 -->
-    @if($menus = \ZyModule::getMenus())
+    @if($menus = \ZyModule::getMenusLevel())
     @foreach($menus as $menu)
     @if(\ZyModule::hadPermission($menu['permission'],'admin'))
         <li class="nav-item has-treeview">

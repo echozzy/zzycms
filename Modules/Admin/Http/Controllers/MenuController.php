@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Cache;
 use Modules\Admin\Http\Requests\MenuRequest;
 use Modules\Admin\Model\AdminMenu;
+use Zzy\Arr\Arr;
 
 class MenuController extends Controller
 {
@@ -23,7 +24,7 @@ class MenuController extends Controller
 
     //获取菜单列表
     public function list(Request $request){
-        $menus = \ZyModule::getMenus();
+        $menus = \ZyModule::getMenusLevel();
         return json_encode($menus);
     }
 
