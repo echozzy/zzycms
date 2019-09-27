@@ -18,7 +18,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = \ZyModule::getMenus();
+        $menus = \ZyModule::getMenusLevel();
         return view('admin::menu.index',compact('menus'));
     }
 
