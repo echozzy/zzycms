@@ -13,7 +13,7 @@ class AdminUserRequest extends FormRequest
      */
     public function rules()
     {
-        $admin_user = $this->route('admin_user');
+        $admin_user = $this->route('adminUser');
         $id = $admin_user ? $admin_user->id : null;
         $rules = [
             'user_name'=>'required|unique:admin_users,user_name,'.$id,

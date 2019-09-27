@@ -23,7 +23,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article::create');
+        dd('ddd');
+        return view('article::admin_category.create');
     }
 
     /**
@@ -53,7 +54,7 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        return view('article::edit');
+        return view('article::admin_category.edit');
     }
 
     /**

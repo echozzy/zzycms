@@ -48,7 +48,7 @@ class AdminUserController extends Controller
 
         $admin_user->assignRole($request->role_id);
         
-        return redirect('/admin/admin_user')->with('success', '管理员添加成功');
+        return redirect('/admin/adminUser')->with('success', '管理员添加成功');
     }
 
     /**
@@ -69,7 +69,7 @@ class AdminUserController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(AdminUserRequest $request, AdminUsers $admin_user)
+    public function update(AdminUserRequest $request, AdminUsers $adminUser)
     {
         $data = [
             'user_name' => $request->user_name,
@@ -78,9 +78,9 @@ class AdminUserController extends Controller
         if($request->password){
             $data['password'] = bcrypt($request->password);
         }
-        $admin_user->update($data);
-        $admin_user->syncRoles($request->role_id);
-        return redirect('/admin/admin_user')->with('success', '管理员编辑成功');
+        $adminUser->update($data);
+        $adminUser->syncRoles($request->role_id);
+        return redirect('/admin/adminUser')->with('success', '管理员编辑成功');
     }
 
     /**
@@ -88,11 +88,11 @@ class AdminUserController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy(AdminUsers $admin_user)
+    public function destroy(AdminUsers $adminUser)
     {
-        $role_name = $admin_user->getRoleNames();
-        $admin_user->removeRole($role_name[0]);
-        $admin_user->delete();
+        $role_name = $adminUser->getRoleNames();
+        $adminUser->removeRole($role_name[0]);
+        $adminUser->delete();
         session()->flash('success','管理员删除成功');
         return back();
     }
