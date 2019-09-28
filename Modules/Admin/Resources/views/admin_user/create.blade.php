@@ -3,19 +3,19 @@
 @section('content')
     @component('admin::components.main',['title'=>'添加管理员','body_css'=>'col-sm-9 m-auto'])
         @slot('breadcrumb')
-            <li class="breadcrumb-item"><a pjax href="/admin/adminUser">管理员列表</a></li>
+            <li class="breadcrumb-item"><a pjax href="/admin/admin_user">管理员列表</a></li>
             <li class="breadcrumb-item active">添加管理员</li>
         @endslot
         @slot('nav')
             <li class="nav-item">
-                <a pjax class="nav-link" href="/admin/adminUser">管理员列表</a>
+                <a pjax class="nav-link" href="/admin/admin_user">管理员列表</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="#">添加管理员</a>
             </li>
         @endslot
         @slot('body')
-            <form action="/admin/adminUser" method="post">
+            <form action="/admin/admin_user" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="form-group row">

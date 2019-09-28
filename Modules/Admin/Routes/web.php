@@ -19,7 +19,7 @@ Route::group(['middleware'=>'web','prefix'=>'admin','namespace'=>'\Modules\Admin
 Route::group(['middleware'=>['web','auth:admin'],'prefix'=>'admin','namespace'=>'\Modules\Admin\Http\Controllers'],function(){
     Route::get('/', 'AdminController@index');
 
-    Route::resource('adminUser', 'AdminUserController')->middleware('permission:admin,resource');
+    Route::resource('admin_user', 'AdminUserController')->middleware('permission:admin,resource');
     
     Route::resource('menu', 'MenuController')->middleware('permission:admin,resource');
     Route::post('menu/list', 'MenuController@list')->name('menu.list')->middleware('permission:admin');

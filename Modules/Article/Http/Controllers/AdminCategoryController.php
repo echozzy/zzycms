@@ -45,17 +45,7 @@ class AdminCategoryController extends Controller
     {
         $article_category->fill($request->all());
         $article_category->save();
-        return redirect('/article/adminCategory')->with('success', '文章分类添加成功');
-    }
-
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return view('article::show');
+        return redirect('/article/admin_category')->with('success', '文章分类添加成功');
     }
 
     /**
@@ -63,10 +53,10 @@ class AdminCategoryController extends Controller
      * @param int $id
      * @return Response
      */
-    public function edit(ArticleCategory $adminCategory)
+    public function edit(ArticleCategory $admin_category)
     {
-        $categorys = $adminCategory->getAll($adminCategory);
-        return view('article::admin_category.edit', compact('categorys', 'adminCategory'));
+        $categorys = $admin_category->getAll($admin_category);
+        return view('article::admin_category.edit', compact('categorys', 'admin_category'));
     }
 
     /**
@@ -75,10 +65,10 @@ class AdminCategoryController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(ArticleCategoryRequest $request, ArticleCategory $adminCategory)
+    public function update(ArticleCategoryRequest $request, ArticleCategory $admin_category)
     {
-        $adminCategory->update($request->all());
-        return redirect('/article/adminCategory')->with('success', '文章分类修改成功');
+        $admin_category->update($request->all());
+        return redirect('/article/admin_category')->with('success', '文章分类修改成功');
     }
 
     /**
@@ -86,13 +76,13 @@ class AdminCategoryController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy(ArticleCategory $adminCategory)
+    public function destroy(ArticleCategory $admin_category)
     {
-        if($adminCategory->hasChild()){
+        if($admin_category->hasChild()){
             return back()->with('error','该分类有下级分类,请先删除下级分类');
         }
-        $adminCategory->delete();
-        return redirect('/article/adminCategory')->with('success', '文章分类删除成功');
+        $admin_category->delete();
+        return redirect('/article/admin_category')->with('success', '文章分类删除成功');
     }
 
     //分类排序

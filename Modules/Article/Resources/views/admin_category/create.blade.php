@@ -3,19 +3,19 @@
 @section('content')
     @component('admin::components.main',['title'=>'添加分类','body_css'=>'col-sm-9 m-auto'])
         @slot('breadcrumb')
-            <li class="breadcrumb-item"><a pjax href="/article/adminCategory">文章分类</a></li>
+            <li class="breadcrumb-item"><a pjax href="/article/admin_category">文章分类</a></li>
             <li class="breadcrumb-item active">添加分类</li>
         @endslot
         @slot('nav')
             <li class="nav-item">
-                <a pjax class="nav-link" href="/article/adminCategory">分类列表</a>
+                <a pjax class="nav-link" href="/article/admin_category">分类列表</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="#">添加分类</a>
             </li>
         @endslot
         @slot('body')
-            <form action="/article/adminCategory" method="post">
+            <form action="/article/admin_category" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="form-group row">

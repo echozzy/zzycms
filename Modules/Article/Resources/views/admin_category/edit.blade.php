@@ -1,21 +1,21 @@
 @extends('admin::layouts.master')
 
 @section('content')
-    @component('admin::components.main',['title'=>"编辑文章分类[$adminCategory[cat_name]]",'body_css'=>'col-sm-9 m-auto'])
+    @component('admin::components.main',['title'=>"编辑文章分类[$admin_category[cat_name]]",'body_css'=>'col-sm-9 m-auto'])
         @slot('breadcrumb')
-            <li class="breadcrumb-item"><a pjax href="/article/adminCategory">文章分类</a></li>
+            <li class="breadcrumb-item"><a pjax href="/article/admin_category">文章分类</a></li>
             <li class="breadcrumb-item active">编辑文章分类</li>
         @endslot
         @slot('nav')
             <li class="nav-item">
-                <a pjax class="nav-link" href="/article/adminCategory">文章分类</a>
+                <a pjax class="nav-link" href="/article/admin_category">文章分类</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="#">编辑文章分类</a>
             </li>
         @endslot
         @slot('body')
-            <form action="/article/adminCategory/{{$adminCategory['id']}}" method="post">
+            <form action="/article/admin_category/{{$admin_category['id']}}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
@@ -34,14 +34,14 @@
                         <label for="cat_name" class="col-sm-2 col-form-label">分类名称</label>
                         <div class="col-sm-10">
                             <input type="cat_name" class="form-control" id="cat_name" name="cat_name" placeholder="请输入分类名称" required
-                            value="{{$adminCategory['cat_name']}}">
+                            value="{{$admin_category['cat_name']}}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="cat_description" class="col-sm-2 col-form-label">分类描述</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="cat_description" name="cat_description" placeholder="请输入分类描述"
-                            value="{{$adminCategory['cat_description']}}">
+                            value="{{$admin_category['cat_description']}}">
                         </div>
                     </div>
                 </div>

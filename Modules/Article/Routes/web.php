@@ -12,7 +12,7 @@
 */
 
 Route::group(['middleware'=>['web','auth:admin'],'prefix'=>'article','namespace'=>'\Modules\Article\Http\Controllers'],function(){
-    Route::resource('adminCategory', 'AdminCategoryController');
-    Route::post('adminCategory/list', 'AdminCategoryController@list')->name('adminCategory.list')->middleware('permission:admin');
-    Route::post('adminCategory/sort', 'AdminCategoryController@sort')->name('adminCategory.sort')->middleware('permission:admin');
+    Route::resource('admin_category', 'AdminCategoryController');
+    Route::post('admin_category/list', 'AdminCategoryController@list')->name('admin_category.list')->middleware('permission:admin');
+    Route::post('admin_category/sort', 'AdminCategoryController@sort')->name('admin_category.sort')->middleware('permission:admin');
 });

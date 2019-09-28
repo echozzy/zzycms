@@ -11,9 +11,9 @@
     <a class="nav-link active" href="#">文章分类</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" pjax href="/article/adminCategory/create">添加分类</a>
+    <a class="nav-link" pjax href="/article/admin_category/create">添加分类</a>
 </li>
-@component('admin::components.modal',['formid'=>'del_forms','id'=>'del','url'=>'/article/adminCategory','method'=>'DELETE','title'=>'删除分类'])
+@component('admin::components.modal',['formid'=>'del_forms','id'=>'del','url'=>'/article/admin_category','method'=>'DELETE','title'=>'删除分类'])
 <input type="hidden" name="id" id="id" value="" />
 <p id="msg">你确定要删除该分类</p>
 @endcomponent
@@ -45,7 +45,7 @@
             "info": false,
             "autoWidth": false,
             "ajax": {
-                        "url": "/article/adminCategory/list",
+                        "url": "/article/admin_category/list",
                         "type": "POST",
                         "async": false,
                         "dataSrc":""
@@ -88,7 +88,8 @@
                     {
                         "className":"text-center",
                         data:function(item){
-                            var html = '<a href="/article/adminCategory/'+item.id+'/edit" class="btn btn-xs bg-gradient-primary" href="#">编辑</a>';
+                            var html = '<a href="/article/admin_category/create/'+item.id+'" class="btn btn-xs bg-gradient-primary" href="#">添加子分类</a>';
+                            html += '<a href="/article/admin_category/'+item.id+'/edit" class="btn btn-xs bg-gradient-primary" href="#">编辑</a>';
                             html += '<a class="btn btn-xs bg-gradient-danger" href="#" onclick="del(this)" data-id="'+item.id+'" data-cat_name="'+item.cat_name+'">删除</a>\n';
                             return html;
                         }
@@ -101,7 +102,7 @@
     function del(obj){
         var id = $(obj).data('id');
         var msg = '你确定要删除分类['+$(obj).data('cat_name')+']?';
-        var url = '/article/adminCategory/'+id;
+        var url = '/article/admin_category/'+id;
         $("#id").val(id);
         $("#msg").html(msg);
         $("#del_forms").attr('action',url);
@@ -114,7 +115,7 @@
             type: 'post',
             dataType:'json',
             data: {'id':id,'val':val},
-            url:"/article/adminCategory/sort",
+            url:"/article/admin_category/sort",
             success:function(data){
                 if(data.status){
                     JsToast.fire({
