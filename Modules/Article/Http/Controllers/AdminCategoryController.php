@@ -32,7 +32,7 @@ class AdminCategoryController extends Controller
      */
     public function create(ArticleCategory $article_category)
     {
-        $categorys = $article_category->getAll();
+        $categorys = $article_category->getAll($article_category,true);
         return view('article::admin_category.create', compact('categorys'));
     }
 
@@ -53,10 +53,10 @@ class AdminCategoryController extends Controller
      * @param int $id
      * @return Response
      */
-    public function edit(ArticleCategory $admin_category)
+    public function edit(ArticleCategory $article_category)
     {
-        $categorys = $admin_category->getAll($admin_category);
-        return view('article::admin_category.edit', compact('categorys', 'admin_category'));
+        $categorys = $article_category->getAll($article_category);
+        return view('article::admin_category.edit', compact('categorys', 'article_category'));
     }
 
     /**
@@ -65,9 +65,9 @@ class AdminCategoryController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(ArticleCategoryRequest $request, ArticleCategory $admin_category)
+    public function update(ArticleCategoryRequest $request, ArticleCategory $article_category)
     {
-        $admin_category->update($request->all());
+        $article_category->update($request->all());
         return redirect('/article/admin_category')->with('success', '文章分类修改成功');
     }
 
@@ -76,12 +76,12 @@ class AdminCategoryController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy(ArticleCategory $admin_category)
+    public function destroy(ArticleCategory $article_category)
     {
-        if($admin_category->hasChild()){
+        if($article_category->hasChild()){
             return back()->with('error','该分类有下级分类,请先删除下级分类');
         }
-        $admin_category->delete();
+        $article_category->delete();
         return redirect('/article/admin_category')->with('success', '文章分类删除成功');
     }
 

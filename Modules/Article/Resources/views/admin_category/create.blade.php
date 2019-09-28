@@ -24,7 +24,7 @@
                             <select id="p_id" name="p_id" class="form-control">
                                 <option value="0">作为一级分类</option>
                                 @foreach ($categorys as $item)
-                                <option value="{{$item['id']}}">{!!$item['_cat_name']!!}</option>
+                                <option value="{{$item['id']}}" {{$item['_selected']?'selected':''}}>{!!$item['_cat_name']!!}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -9,13 +9,19 @@ class ArticleCategory extends Model
 {
     protected $fillable = ['p_id', 'cat_name', 'cat_description', 'list_order'];
 
-    public function getAll($adminCategory = null)
+    public function getAll($article_category = null,$is_create = false)
     {
         $data = $this->orderBy('list_order', 'asc')->get()->toArray();
-        if (!is_null($adminCategory)) {
+        if($is_create&&!is_null($article_category)){
             foreach ($data as $k => $v) {
-                $data[$k]['_selected'] = $adminCategory['p_id'] == $v['id'];
-                $data[$k]['_disabled'] = $adminCategory['id'] == $v['id'] || (new Arr())->isChild($data, $v['id'], $adminCategory['id'], 'id');
+                $data[$k]['_selected'] = $article_category['id'] == $v['id'];
+            }
+        }else{
+            if (!is_null($article_category)) {
+                foreach ($data as $k => $v) {
+                    $data[$k]['_selected'] = $article_category['p_id'] == $v['id'];
+                    $data[$k]['_disabled'] = $article_category['id'] == $v['id'] || (new Arr())->isChild($data, $v['id'], $article_category['id'], 'id');
+                }
             }
         }
         $data = (new Arr())->tree($data, 'cat_name', 'id', 'p_id');

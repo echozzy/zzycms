@@ -29,7 +29,7 @@
             <th>分类名称</th>
             <th>分类描述</th>
             <th>创建时间</th>
-            <th width="120">操作</th>
+            <th>操作</th>
         </tr>
     </thead>
     <tbody></tbody>
@@ -88,7 +88,7 @@
                     {
                         "className":"text-center",
                         data:function(item){
-                            var html = '<a href="/article/admin_category/create/'+item.id+'" class="btn btn-xs bg-gradient-primary" href="#">添加子分类</a>';
+                            var html = '<a href="/article/admin_category/create/'+item.id+'" class="btn btn-xs bg-gradient-primary" href="#">添加分类</a>';
                             html += '<a href="/article/admin_category/'+item.id+'/edit" class="btn btn-xs bg-gradient-primary" href="#">编辑</a>';
                             html += '<a class="btn btn-xs bg-gradient-danger" href="#" onclick="del(this)" data-id="'+item.id+'" data-cat_name="'+item.cat_name+'">删除</a>\n';
                             return html;
