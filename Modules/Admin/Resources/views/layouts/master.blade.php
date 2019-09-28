@@ -256,6 +256,7 @@
   <!-- Pjax -->
   <script src="{{asset('admin/plugins/pjax/jquery.pjax.js')}}"></script>
   <script src="{{asset('admin/plugins/pjax/pjax.js')}}"></script>
+  <script src="{{asset('admin/plugins/menu.js')}}"></script>
   <script>
     // Resolve conflict in jQuery UI tooltip with Bootstrap tooltip 
     $.widget.bridge('uibutton', $.ui.button)

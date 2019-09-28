@@ -9,6 +9,14 @@ class ArticleCategory extends Model
 {
     protected $fillable = ['p_id', 'cat_name', 'cat_description', 'list_order'];
 
+    /**
+     * 获取所有文章分类
+     *
+     * @param array $article_category
+     * @param boolean $is_create
+     * @return array
+     * @author zzy
+     */
     public function getAll($article_category = null,$is_create = false)
     {
         $data = $this->orderBy('list_order', 'asc')->get()->toArray();
@@ -28,7 +36,12 @@ class ArticleCategory extends Model
         return $data;
     }
 
-    // 获取所有分类(多维数组)
+    /**
+     * 获取所有分类(多维数组)
+     *
+     * @return array
+     * @author zzy
+     */
     public function getAllLevel()
     {
         $data = $this->orderBy('list_order', 'asc')->get()->toArray();
@@ -36,6 +49,12 @@ class ArticleCategory extends Model
         return $data;
     }
 
+    /**
+     * 是否有子分类
+     *
+     * @return boolean
+     * @author zzy
+     */
     public function hasChild()
     {
         $data = $this->get()->toArray();
