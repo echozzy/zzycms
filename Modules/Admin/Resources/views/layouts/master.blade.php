@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/datatables/dataTables.bootstrap4.css')}}">
   <!-- Pjax -->
   <link rel="stylesheet" href="{{asset('admin/plugins/pjax/pjax.css')}}">
-
+  @stack('css')
   <script src="{{ mix('js/app.js') }}"></script>
 </head>
 <style>
@@ -275,6 +275,7 @@
         timer: 2000
     });
   </script>
+  @stack('scripts')
 
   @include('admin::layouts._validate')
   @include('admin::layouts._messages')
