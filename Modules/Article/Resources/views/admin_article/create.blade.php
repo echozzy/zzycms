@@ -94,8 +94,12 @@
                     <div class="form-group row">
                         <label for="thumb" class="col-sm-2 col-form-label">缩略图</label>
                         <div class="col-sm-6">
-                            <input type="cat_name" class="form-control" id="thumb" name="thumb" placeholder="请输入文章标题" required
-                            value="{{old('thumb')}}">
+                            <input type="hidden" name="more[thumbnail]" class="form-control" id="js-thumbnail-input">
+                            <div>
+                                <a href="#">
+                                    <img src="{{asset('admin/dist/img/default-thumbnail.png')}}" id="js-thumbnail-input-preview" width="135" style="cursor: pointer">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -107,7 +111,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-info float-right">提交</button>
+                    <button type="submit" class="btn btn-info float-left">提交</button>
                 </div>
             </form>
         @endslot
