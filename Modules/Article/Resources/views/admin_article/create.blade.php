@@ -1,11 +1,12 @@
 @extends('admin::layouts.master')
 @push('css')
 <link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/css/fileinput.min.css')}}">
 @endpush
 @section('content')
     @component('admin::components.main',['title'=>'添加分类'])
         @slot('breadcrumb')
-            <li class="breadcrumb-item"><a pjax href="/article/admin_article">文章列表/a></li>
+            <li class="breadcrumb-item"><a pjax href="/article/admin_article">文章列表</a></li>
             <li class="breadcrumb-item active">添加文章</li>
         @endslot
         @slot('nav')
@@ -15,6 +16,8 @@
             <li class="nav-item">
                 <a class="nav-link active" href="#">添加文章</a>
             </li>
+            @component('admin::components.upload_modal',['id'=>'thumbnail','title'=>'图片上传'])
+            @endcomponent
         @endslot
         @slot('body')
             <form action="/article/admin_article" method="post">
@@ -94,10 +97,10 @@
                     <div class="form-group row">
                         <label for="thumb" class="col-sm-2 col-form-label">缩略图</label>
                         <div class="col-sm-6">
-                            <input type="hidden" name="more[thumbnail]" class="form-control" id="js-thumbnail-input">
+                            <input type="hidden" name="thumb" class="form-control" id="thumbnail">
                             <div>
-                                <a href="#">
-                                    <img src="{{asset('admin/dist/img/default-thumbnail.png')}}" id="js-thumbnail-input-preview" width="135" style="cursor: pointer">
+                                <a href="javascript:;" onclick="uploadOneImage('#thumbnail','/files','')">
+                                    <img src="{{asset('admin/dist/img/default-thumbnail.png')}}" id="thumbnail-preview" width="135" style="cursor: pointer">
                                 </a>
                             </div>
                         </div>
@@ -117,3 +120,9 @@
         @endslot
     @endcomponent
 @endsection
+@push('scripts')
+<script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/fileinput.js')}}"></script>
+<script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/locales/zh.js')}}"></script>
+<script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/themes/fas/theme.js')}}"></script>
+<script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/init_fileinput.js')}}"></script>
+@endpush

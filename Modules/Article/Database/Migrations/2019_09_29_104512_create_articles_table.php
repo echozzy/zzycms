@@ -24,6 +24,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedInteger('likes')->comment('点赞数');
             $table->unsignedInteger('favorites')->comment('收藏数');
             $table->unsignedInteger('comment_count')->comment('评论数');
+            $table->text('more')->nullable()->comment('扩展属性,如缩略图,文件,视频;格式为json');
             $table->timestamps();
         });
     }

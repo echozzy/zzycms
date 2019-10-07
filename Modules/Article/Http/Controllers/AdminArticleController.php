@@ -33,7 +33,10 @@ class AdminArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $arr['msg'] = '成功';
+        $arr['url'] = 'http://web.zzycms.com/admin/dist/img/user2-160x160.jpg';
+
+        return json_encode($arr);
     }
 
     /**
