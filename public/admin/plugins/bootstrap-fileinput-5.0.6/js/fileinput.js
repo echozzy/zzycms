@@ -1760,10 +1760,12 @@
                 add: function (content, config, tags, append) {
                     // zzy 修改 报错修改
                     // var data = self.previewCache.data, index = content.length - 1;
-                    var data = self.previewCache.data, index = 0;
+                    var data = self.previewCache.data, index;
                     if (!content || !content.length) {
-                        return index;
+                        // return index;
+                        return 0;
                     }
+                    index = content.length - 1;
                     if (!$h.isArray(content)) {
                         content = content.split(self.initialPreviewDelimiter);
                     }

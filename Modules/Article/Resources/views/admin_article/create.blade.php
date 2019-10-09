@@ -18,6 +18,8 @@
             </li>
             @component('admin::components.upload_modal',['id'=>'thumbnail','title'=>'图片上传'])
             @endcomponent
+            @component('admin::components.upload_modal',['id'=>'files','title'=>'图片上传','is_multiple'=>'true'])
+            @endcomponent
         @endslot
         @slot('body')
             <form action="/article/admin_article" method="post">
@@ -99,10 +101,18 @@
                         <div class="col-sm-6">
                             <input type="hidden" name="thumb" class="form-control" id="thumbnail">
                             <div>
-                                <a href="javascript:;" onclick="uploadOneImage('#thumbnail','/files','')">
+                                <a href="javascript:;" onclick="uploadOneImage('#thumbnail','article')">
                                     <img src="{{asset('admin/dist/img/default-thumbnail.png')}}" id="thumbnail-preview" width="135" style="cursor: pointer">
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="thumb" class="col-sm-2 col-form-label">附件</label>
+                        <div class="col-sm-6 col-form-label">
+                            <ul id="files" class="list-group">
+                            </ul>
+                            <a class="btn btn-xs bg-gradient-primary" href="javascript:;" onclick="uploadFiles('#files','article')">选择文件</a>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -121,7 +131,7 @@
     @endcomponent
 @endsection
 @push('scripts')
-<script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/fileinput.js')}}"></script>
+<script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/fileinput.min.js')}}"></script>
 <script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/locales/zh.js')}}"></script>
 <script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/themes/fas/theme.js')}}"></script>
 <script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/init_fileinput.js')}}"></script>
