@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/css/fileinput.min.css')}}">
 @endpush
+@include('vendor.ueditor.assets')
 @section('content')
     @component('admin::components.main',['title'=>'添加分类'])
         @slot('breadcrumb')
@@ -118,8 +119,7 @@
                     <div class="form-group row">
                         <label for="content" class="col-sm-2 col-form-label">文章内容</label>
                         <div class="col-sm-6">
-                            <input type="cat_name" class="form-control" id="content" name="content" placeholder="请输入文章标题" required
-                            value="{{old('content')}}">
+                            <script id="container" name="content" type="text/plain"></script>
                         </div>
                     </div>
                 </div>
@@ -135,4 +135,11 @@
 <script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/locales/zh.js')}}"></script>
 <script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/themes/fas/theme.js')}}"></script>
 <script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/init_fileinput.js')}}"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+    ue.ready(function() {
+        ue.execCommand('serverparam', '_token', '{{ csrf_token() }}'); // 设置 CSRF token.
+    });
+</script>
 @endpush

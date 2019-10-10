@@ -8,7 +8,6 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Cache;
 use Modules\Admin\Http\Requests\MenuRequest;
 use Modules\Admin\Model\AdminMenu;
-use Zzy\Arr\Arr;
 
 class MenuController extends Controller
 {

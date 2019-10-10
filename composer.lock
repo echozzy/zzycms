@@ -340,16 +340,16 @@
         },
         {
             "name": "echozzy/laravel-module",
-            "version": "v1.0.8",
+            "version": "v1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/echozzy/laravel-module.git",
-                "reference": "3d31e3e0aa881ced3b52c16283d4a7bbc7a36951"
+                "reference": "104c55fc3d9e5e946b1549af7ab6c962f543431c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/echozzy/laravel-module/zipball/3d31e3e0aa881ced3b52c16283d4a7bbc7a36951",
-                "reference": "3d31e3e0aa881ced3b52c16283d4a7bbc7a36951",
+                "url": "https://api.github.com/repos/echozzy/laravel-module/zipball/104c55fc3d9e5e946b1549af7ab6c962f543431c",
+                "reference": "104c55fc3d9e5e946b1549af7ab6c962f543431c",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -360,6 +360,7 @@
             },
             "require": {
                 "echozzy/array-tree": "^1.0",
+                "echozzy/laravel-ueditor": "^1.0",
                 "echozzy/upd-laravel-modules": "^1.0.0",
                 "php": "^7.1.3",
                 "spatie/laravel-permission": "^3.0"
@@ -391,7 +392,53 @@
                 }
             ],
             "description": "laravel-module",
-            "time": "2019-09-27T02:54:17+00:00"
+            "time": "2019-10-10T09:40:56+00:00"
+        },
+        {
+            "name": "echozzy/laravel-ueditor",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/echozzy/laravel-ueditor.git",
+                "reference": "713903dfe89b46a0286e7798901824a46ccdf9aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/echozzy/laravel-ueditor/zipball/713903dfe89b46a0286e7798901824a46ccdf9aa",
+                "reference": "713903dfe89b46a0286e7798901824a46ccdf9aa",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Zzy\\LaravelUEditor\\UEditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zzy\\LaravelUEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "echozzy",
+                    "email": "348858954@qq.com"
+                }
+            ],
+            "description": "Ueditor",
+            "time": "2019-10-10T09:24:30+00:00"
         },
         {
             "name": "echozzy/upd-laravel-modules",
