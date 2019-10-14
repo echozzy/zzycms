@@ -297,16 +297,16 @@
         },
         {
             "name": "echozzy/array-tree",
-            "version": "v1.0.1",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/echozzy/array-tree.git",
-                "reference": "179af4556d609bb335e49ab7c06d35ddc32a95e9"
+                "reference": "00750b5cf173c2fff56a3868a95898ba46395ee3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/echozzy/array-tree/zipball/179af4556d609bb335e49ab7c06d35ddc32a95e9",
-                "reference": "179af4556d609bb335e49ab7c06d35ddc32a95e9",
+                "url": "https://api.github.com/repos/echozzy/array-tree/zipball/00750b5cf173c2fff56a3868a95898ba46395ee3",
+                "reference": "00750b5cf173c2fff56a3868a95898ba46395ee3",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -336,20 +336,20 @@
                 }
             ],
             "description": "array-tree",
-            "time": "2019-09-26T14:16:20+00:00"
+            "time": "2019-09-28T02:22:49+00:00"
         },
         {
             "name": "echozzy/laravel-module",
-            "version": "v1.0.9",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/echozzy/laravel-module.git",
-                "reference": "104c55fc3d9e5e946b1549af7ab6c962f543431c"
+                "reference": "f3538c971daaadaad677b8523761ff232cda863d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/echozzy/laravel-module/zipball/104c55fc3d9e5e946b1549af7ab6c962f543431c",
-                "reference": "104c55fc3d9e5e946b1549af7ab6c962f543431c",
+                "url": "https://api.github.com/repos/echozzy/laravel-module/zipball/f3538c971daaadaad677b8523761ff232cda863d",
+                "reference": "f3538c971daaadaad677b8523761ff232cda863d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -392,7 +392,7 @@
                 }
             ],
             "description": "laravel-module",
-            "time": "2019-10-10T09:40:56+00:00"
+            "time": "2019-10-14T07:07:17+00:00"
         },
         {
             "name": "echozzy/laravel-ueditor",
