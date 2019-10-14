@@ -1898,16 +1898,16 @@
         },
         {
             "name": "spatie/laravel-pjax",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-pjax.git",
-                "reference": "ade708be9520e98c89f3641bcc6b6f4e52123002"
+                "reference": "f0de2cc05d4955121c153fc1bed142b70d475b8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-pjax/zipball/ade708be9520e98c89f3641bcc6b6f4e52123002",
-                "reference": "ade708be9520e98c89f3641bcc6b6f4e52123002",
+                "url": "https://api.github.com/repos/spatie/laravel-pjax/zipball/f0de2cc05d4955121c153fc1bed142b70d475b8b",
+                "reference": "f0de2cc05d4955121c153fc1bed142b70d475b8b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1952,7 +1952,7 @@
                 "pjax",
                 "spatie"
             ],
-            "time": "2019-09-20T07:26:28+00:00"
+            "time": "2019-09-30T16:54:37+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
