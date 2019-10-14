@@ -38,12 +38,6 @@
             $(function () {
                     // 初始化表格
                     $('#permission_list').DataTable({
-                        "paging": false,
-                        "lengthChange": false,
-                        "searching": false,
-                        "ordering": false,
-                        "info": false,
-                        "autoWidth": false,
                         "ajax": {
                                     "url": "/admin/permission/list",
                                     "type": "POST",

@@ -75,14 +75,7 @@
             </table>
             <script>
                 $(function () {
-                    $('#role_list').DataTable({
-                        "paging": false,
-                        "lengthChange": false,
-                        "searching": false,
-                        "ordering": false,
-                        "info": false,
-                        "autoWidth": false
-                    });
+                    $('#role_list').DataTable();
                 });
                 function del(obj){
                     var id = $(obj).data('id');

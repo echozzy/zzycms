@@ -14,9 +14,21 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'=>'required',
+            'keywords'=>'required',
+            'description'=>'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required'=>'文章标题不能为空',
+            'keywords.required'=>'关键词不能为空',
+            'description.required'=>'简介描述不能为空',
+        ];
+    }
+
 
     /**
      * Determine if the user is authorized to make this request.

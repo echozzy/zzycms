@@ -4,7 +4,7 @@
     @foreach($menus as $menu)
     @if(\ZyModule::hadPermission($menu['permission'],'admin'))
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link" pjax>
                 <i class="nav-icon {{$menu['icon']}}"></i>
                 <p>
                     {{$menu['title']}}
@@ -16,7 +16,7 @@
                 @foreach($menu['children'] as $item)
                 @if(\ZyModule::hadPermission($item['permission'],'admin'))
                 <li class="nav-item">
-                    <a href="{{$item['url']}}" class="nav-link">
+                    <a href="{{$item['url']}}" pjax class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>{{$item['title']}}</p>
                     </a>

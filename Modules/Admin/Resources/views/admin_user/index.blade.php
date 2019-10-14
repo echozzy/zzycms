@@ -47,14 +47,7 @@
 </table>
 <script>
     $(function () {
-        $('#tab_list').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false
-        });
+        $('#tab_list').DataTable();
     });
             
     function del(obj){

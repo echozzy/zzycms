@@ -20,4 +20,5 @@ Route::group(['middleware'=>['web','auth:admin'],'prefix'=>'article','namespace'
    
     // 文章
     Route::resource('admin_article', 'AdminArticleController')->parameters(['admin_article'=>'article'])->middleware('permission:admin,resource');
+    Route::post('admin_article/list', 'AdminArticleController@list')->name('admin_article.list')->middleware('permission:admin');
 });

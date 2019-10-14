@@ -11,7 +11,7 @@
     <a class="nav-link active" href="#">文章分类</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" pjax href="/article/admin_category/create">添加分类</a>
+    <a class="nav-link" href="/article/admin_category/create">添加分类</a>
 </li>
 @component('admin::components.modal',['formid'=>'del_forms','id'=>'del','url'=>'/article/admin_category','method'=>'DELETE','title'=>'删除分类'])
 <input type="hidden" name="id" id="id" value="" />
@@ -38,12 +38,6 @@
     $(function () {
         // 初始化表格
         $('#tab_list').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
             "ajax": {
                         "url": "/article/admin_category/list",
                         "type": "POST",

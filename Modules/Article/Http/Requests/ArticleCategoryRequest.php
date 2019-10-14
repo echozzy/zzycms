@@ -13,8 +13,8 @@ class ArticleCategoryRequest extends FormRequest
      */
     public function rules()
     {
-        $admin_category = $this->route('admin_category');
-        $id = $admin_category ? $admin_category->id : null;
+        $article_category = $this->route('article_category');
+        $id = $article_category ? $article_category->id : null;
         return [
             'cat_name'=>'required|unique:article_categories,cat_name,'.$id,
         ];

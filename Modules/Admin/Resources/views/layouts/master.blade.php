@@ -253,6 +253,7 @@
   <script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
   <script src="{{asset('admin/plugins/datatables/dataTables.treeGrid.js')}}"></script>
   <script src="{{asset('admin/plugins/datatables/dataTables.language.js')}}"></script>
+  <script src="{{asset('admin/plugins/datatables/dataTables.init_config.js')}}"></script>
   <!-- Pjax -->
   <script src="{{asset('admin/plugins/pjax/jquery.pjax.js')}}"></script>
   <script src="{{asset('admin/plugins/pjax/pjax.js')}}"></script>

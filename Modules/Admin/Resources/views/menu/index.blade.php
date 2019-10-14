@@ -115,12 +115,6 @@
     $(function () {
         // 初始化表格
         $('#menu_list').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
             "ajax": {
                         "url": "/admin/menu/list",
                         "type": "POST",
