@@ -1,8 +1,8 @@
 @extends('admin::layouts.master')
 @include('vendor.ueditor.assets')
 @push('css')
-<link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
-<link rel="stylesheet" href="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/css/fileinput.min.css')}}">
+<link rel="stylesheet" href="{{asset('static/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('static/admin/plugins/bootstrap-fileinput-5.0.6/css/fileinput.min.css')}}">
 @endpush
 @section('content')
     @component('admin::components.main',['title'=>'编辑文章'])
@@ -104,7 +104,7 @@
                             <input type="hidden" name="thumb" class="form-control" id="thumbnail" value="{{$article['thumb']}}">
                             <div>
                                 <a href="javascript:;" onclick="uploadOneImage('#thumbnail','article')">
-                                    <img src="@if($article['thumb'])/{{$article['thumb']}}@else{{asset('admin/dist/img/default-thumbnail.png')}}@endif" id="thumbnail-preview" width="135" style="cursor: pointer">
+                                    <img src="@if($article['thumb'])/{{$article['thumb']}}@else{{asset('static/admin/dist/img/default-thumbnail.png')}}@endif" id="thumbnail-preview" width="135" style="cursor: pointer">
                                 </a>
                             </div>
                         </div>
@@ -140,10 +140,10 @@
     @endcomponent
 @endsection
 @push('scripts')
-<script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/fileinput.min.js')}}"></script>
-<script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/locales/zh.js')}}"></script>
-<script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/themes/fas/theme.js')}}"></script>
-<script src="{{asset('admin/plugins/bootstrap-fileinput-5.0.6/js/init_fileinput.js')}}"></script>
+<script src="{{asset('static/admin/plugins/bootstrap-fileinput-5.0.6/js/fileinput.min.js')}}"></script>
+<script src="{{asset('static/admin/plugins/bootstrap-fileinput-5.0.6/js/locales/zh.js')}}"></script>
+<script src="{{asset('static/admin/plugins/bootstrap-fileinput-5.0.6/themes/fas/theme.js')}}"></script>
+<script src="{{asset('static/admin/plugins/bootstrap-fileinput-5.0.6/js/init_fileinput.js')}}"></script>
 <!-- 实例化编辑器 -->
 <script type="text/javascript">
     var ue = UE.getEditor('container');

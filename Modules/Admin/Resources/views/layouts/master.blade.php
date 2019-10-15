@@ -14,22 +14,22 @@
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <!-- 图标矢量图 -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet"
-    href="{{asset('admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    href="{{asset('static/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
   <!-- 模版样式 -->
-  <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/dist/css/adminlte.min.css')}}">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- 日期组件 -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/daterangepicker/daterangepicker.css')}}">
 
-  <link rel="stylesheet" href="{{asset('admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
   <!-- 表格 -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/datatables/dataTables.bootstrap4.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/datatables/dataTables.bootstrap4.css')}}">
   <!-- Pjax -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/pjax/pjax.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/pjax/pjax.css')}}">
   @stack('css')
   <script src="{{ mix('js/app.js') }}"></script>
 </head>
@@ -99,7 +99,7 @@
             <a href="#" class="dropdown-item">
               <!-- 消息开始 -->
               <div class="media">
-                <img src="{{asset('admin/dist/img/user1-128x128.jpg')}}" alt="User Avatar"
+                <img src="{{asset('static/admin/dist/img/user1-128x128.jpg')}}" alt="User Avatar"
                   class="img-size-50 mr-3 img-circle">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
@@ -116,7 +116,7 @@
             <a href="#" class="dropdown-item">
               <!-- 消息开始 -->
               <div class="media">
-                <img src="{{asset('admin/dist/img/user8-128x128.jpg')}}" alt="User Avatar"
+                <img src="{{asset('static/admin/dist/img/user8-128x128.jpg')}}" alt="User Avatar"
                   class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
@@ -133,7 +133,7 @@
             <a href="#" class="dropdown-item">
               <!-- 消息开始 -->
               <div class="media">
-                <img src="{{asset('admin/dist/img/user3-128x128.jpg')}}" alt="User Avatar"
+                <img src="{{asset('static/admin/dist/img/user3-128x128.jpg')}}" alt="User Avatar"
                   class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
@@ -153,7 +153,7 @@
         <!-- 个人中心 -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
-            <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="user-image img-circle elevation-2"
+            <img src="{{asset('static/admin/dist/img/user2-160x160.jpg')}}" class="user-image img-circle elevation-2"
               alt="User Image">
             <span class="hidden-xs">{{auth()->user()->nick_name}}</span>
           </a>
@@ -178,7 +178,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="/admin" class="brand-link">
-        <img src="{{asset('admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
+        <img src="{{asset('static/admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
           class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">ZzyCms 1</span>
       </a>
@@ -188,7 +188,7 @@
         <!-- 边栏用户面板（可选） -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+            <img src="{{asset('static/admin/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" class="d-block">{{auth()->user()->nick_name}}</a>
@@ -234,30 +234,30 @@
   </div>
   <!-- ./wrapper -->
   <!-- jQuery UI 1.11.4 -->
-  <script src="{{asset('admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
   <!-- daterangepicker -->
-  <script src="{{asset('admin/plugins/moment/moment.min.js')}}"></script>
-  <script src="{{asset('admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/moment/moment.min.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
   <!-- Tempusdominus Bootstrap 4 -->
-  <script src="{{asset('admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
   <!-- overlayScrollbars -->
-  <script src="{{asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
   <!-- FastClick -->
-  <script src="{{asset('admin/plugins/fastclick/fastclick.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/fastclick/fastclick.js')}}"></script>
   <!-- AdminLTE App -->
-  <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
+  <script src="{{asset('static/admin/dist/js/adminlte.js')}}"></script>
   <!-- 警告框 -->
-  <script src="{{asset('admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
   <!-- 表格 -->
-  <script src="{{asset('admin/plugins/datatables/jquery.dataTables.js')}}"></script>
-  <script src="{{asset('admin/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
-  <script src="{{asset('admin/plugins/datatables/dataTables.treeGrid.js')}}"></script>
-  <script src="{{asset('admin/plugins/datatables/dataTables.language.js')}}"></script>
-  <script src="{{asset('admin/plugins/datatables/dataTables.init_config.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/datatables/jquery.dataTables.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/datatables/dataTables.treeGrid.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/datatables/dataTables.language.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/datatables/dataTables.init_config.js')}}"></script>
   <!-- Pjax -->
-  <script src="{{asset('admin/plugins/pjax/jquery.pjax.js')}}"></script>
-  <script src="{{asset('admin/plugins/pjax/pjax.js')}}"></script>
-  <script src="{{asset('admin/plugins/menu.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/pjax/jquery.pjax.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/pjax/pjax.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/menu.js')}}"></script>
   <script>
     // Resolve conflict in jQuery UI tooltip with Bootstrap tooltip 
     $.widget.bridge('uibutton', $.ui.button)

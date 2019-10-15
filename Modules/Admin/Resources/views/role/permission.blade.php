@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 @section('content')
-<link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('static/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
 <style>
     .fa-lg {
         font-size: 1.5em;
