@@ -340,16 +340,16 @@
         },
         {
             "name": "echozzy/laravel-module",
-            "version": "v1.1.12",
+            "version": "v1.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/echozzy/laravel-module.git",
-                "reference": "49d11b93693caf627e8ac044cccd96772027fd55"
+                "reference": "c38db0813ea794b0a87a1733d3eb15b4ce093d7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/echozzy/laravel-module/zipball/49d11b93693caf627e8ac044cccd96772027fd55",
-                "reference": "49d11b93693caf627e8ac044cccd96772027fd55",
+                "url": "https://api.github.com/repos/echozzy/laravel-module/zipball/c38db0813ea794b0a87a1733d3eb15b4ce093d7f",
+                "reference": "c38db0813ea794b0a87a1733d3eb15b4ce093d7f",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -392,7 +392,7 @@
                 }
             ],
             "description": "laravel-module",
-            "time": "2019-10-14T09:59:00+00:00"
+            "time": "2019-10-15T03:01:27+00:00"
         },
         {
             "name": "echozzy/laravel-ueditor",

@@ -22,7 +22,7 @@ return [
         'permission' => 'Article',
         "url" => "/article/admin_article",
         "menus"      => [
-            ["title" => "文章分类", "icon"=> "fa fa-navicon", "permission" => "Modules\Article\Http\Controllers\AdminCategoryController@index", "url" => "/article/admin_article"],
+            ["title" => "文章分类", "icon"=> "fa fa-navicon", "permission" => "Modules\Article\Http\Controllers\AdminCategoryController@index", "url" => "/article/admin_category"],
             ["title" => "文章列表", "icon"=> "fa fa-navicon", "permission" => "Modules\Article\Http\Controllers\AdminArticleController@index", "url" => "/article/admin_article"],
         ],
     ],
