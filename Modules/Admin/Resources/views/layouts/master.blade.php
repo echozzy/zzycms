@@ -234,7 +234,7 @@
   <script src="{{asset('static/admin/plugins/moment/moment.min.js')}}"></script>
   <script src="{{asset('static/admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
   <!-- AdminLTE App -->
-  <script src="{{asset('static/admin/dist/js/adminlte.js')}}"></script>
+  <script src="{{asset('static/admin/dist/js/adminlte.min.js')}}"></script>
   <!-- 警告框 -->
   <script src="{{asset('static/admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
   <!-- 表格 -->
