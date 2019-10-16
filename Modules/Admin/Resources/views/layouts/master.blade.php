@@ -13,8 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-  <!-- 图标矢量图 -->
-  <link rel="stylesheet" href="{{asset('static/admin/plugins/fontawesome-free/css/all.min.css')}}">
+  
   <!-- 模版样式 -->
   <link rel="stylesheet" href="{{asset('static/admin/dist/css/adminlte.min.css')}}">
   <!-- 日期组件 -->
@@ -25,6 +24,8 @@
   <link rel="stylesheet" href="{{asset('static/admin/plugins/datatables/dataTables.bootstrap4.min.css')}}">
   <!-- Pjax -->
   <link rel="stylesheet" href="{{asset('static/admin/plugins/pjax/pjax.css')}}">
+  <!-- 图标矢量图 -->
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/fontawesome-free/css/all.min.css')}}">
   @stack('css')
   <script src="{{ mix('js/app.js') }}"></script>
 </head>
