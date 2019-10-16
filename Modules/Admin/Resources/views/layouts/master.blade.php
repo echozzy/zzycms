@@ -15,19 +15,14 @@
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <!-- 图标矢量图 -->
   <link rel="stylesheet" href="{{asset('static/admin/plugins/fontawesome-free/css/all.min.css')}}">
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet"
-    href="{{asset('static/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
   <!-- 模版样式 -->
   <link rel="stylesheet" href="{{asset('static/admin/dist/css/adminlte.min.css')}}">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{asset('static/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- 日期组件 -->
   <link rel="stylesheet" href="{{asset('static/admin/plugins/daterangepicker/daterangepicker.css')}}">
 
   <link rel="stylesheet" href="{{asset('static/admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
   <!-- 表格 -->
-  <link rel="stylesheet" href="{{asset('static/admin/plugins/datatables/dataTables.bootstrap4.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/datatables/dataTables.bootstrap4.min.css')}}">
   <!-- Pjax -->
   <link rel="stylesheet" href="{{asset('static/admin/plugins/pjax/pjax.css')}}">
   @stack('css')
@@ -238,19 +233,13 @@
   <!-- daterangepicker -->
   <script src="{{asset('static/admin/plugins/moment/moment.min.js')}}"></script>
   <script src="{{asset('static/admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
-  <!-- Tempusdominus Bootstrap 4 -->
-  <script src="{{asset('static/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
-  <!-- overlayScrollbars -->
-  <script src="{{asset('static/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
-  <!-- FastClick -->
-  <script src="{{asset('static/admin/plugins/fastclick/fastclick.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="{{asset('static/admin/dist/js/adminlte.js')}}"></script>
   <!-- 警告框 -->
   <script src="{{asset('static/admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
   <!-- 表格 -->
-  <script src="{{asset('static/admin/plugins/datatables/jquery.dataTables.js')}}"></script>
-  <script src="{{asset('static/admin/plugins/datatables/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
   <script src="{{asset('static/admin/plugins/datatables/dataTables.treeGrid.js')}}"></script>
   <script src="{{asset('static/admin/plugins/datatables/dataTables.language.js')}}"></script>
   <script src="{{asset('static/admin/plugins/datatables/dataTables.init_config.js')}}"></script>
