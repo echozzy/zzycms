@@ -10,12 +10,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <!-- 图标矢量图 -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- 模版样式 -->
-  <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
-  <link rel="stylesheet" href="{{asset('admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('static/admin/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
 </head>
 
 <body class="hold-transition login-page">
@@ -70,7 +70,7 @@
 
   <!-- jQuery -->
   <script src="{{ mix('js/app.js') }}"></script>
-  <script src="{{asset('admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+  <script src="{{asset('static/admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
   @include('admin::layouts._validate')
 </body>
 
