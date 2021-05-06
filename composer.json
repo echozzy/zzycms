@@ -12,7 +12,7 @@
         "caouecs/laravel-lang": "~3.0",
         "echozzy/laravel-module": "^1.0",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "6.18.*",
         "laravel/tinker": "^1.0",
         "spatie/laravel-pjax": "^2.0"
     },
